@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Ternary Chart</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    <button id="DataInput" class="bt">
+      Data Input
+    </button>
+
+    <button id="Points" class="bt">
+      Points
+    </button>
+
+    <button id="Lines" class="bt">
+      Lines
+    </button>
+
+    <button id="Information" class="bt">
+      Information
+    </button>
+
+    <button id="Apperance" class="bt">
+      Apperance
+    </button>
+
+    <button id="PrintExport" class="bt">
+      Print and Export
+    </button>
+
+
+
+  <div id="fade" class="hide"></div>
+  <div id="modal-dataInput" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Data Input</h2>
+    </div>
+    <div id="modal-body-dataInput"></div>
+      <form>
+        <label>R</label> 
+        <input type="number">
+        <p><br></p>
+      </form>
+      <form>
+        <label>N</label>
+        <input type="number">
+        <p><br></p>
+      </form>
+      <form>
+        <label>F</label>
+        <input type="number">
+        <p><br></p>
+      </form>
+      <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
+    </div>
+  </div>
+
+<!--
+  <div id="fade" class="hide"></div>
+  <div id="modal-point" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Points</h2>
+    </div>
+    <div class="modal-body-points"></div>
+      
+    </div>
+  </div>
+  -->
+  
+  <div id="chart"></div>
+  <script src="script.js">
+    // JavaScript code for creating the chart goes here
+  </script>
+  
+</body>
+
+</html>

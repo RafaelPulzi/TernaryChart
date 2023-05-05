@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive Ternary Chart</title>
+	<!-- include Plotly.js library -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+	<!-- create a div for the chart -->
+	<div id="ternary-chart"></div>
+
+	<!-- JavaScript code to create the chart -->
+	<script>
+		// define data for the chart
+		var data = [{
+		  type: 'scatterternary',
+		  mode: 'markers',
+		  a: [0.1, 0.2, 0.3, 0.4, 0.5],
+		  b: [0.4, 0.3, 0.2, 0.1, 0.0],
+		  c: [0.5, 0.5, 0.5, 0.5, 0.5],
+		  marker: {
+		    size: 10,
+		    color: 'blue',
+		    symbol: 'circle'
+		  },
+		  text: ['Point A', 'Point B', 'Point C', 'Point D', 'Point E']
+		}];
+
+		// define layout for the chart
+		var layout = {
+		  ternary: {
+		    sum: 1,
+		    aaxis: {
+		      title: 'Component A',
+		      ticksuffix: '%'
+		    },
+		    baxis: {
+		      title: 'Component B',
+		      ticksuffix: '%'
+		    },
+		    caxis: {
+		      title: 'Component C',
+		      ticksuffix: '%'
+		    },
+		    bgcolor: 'white',
+		    line: {
+		      color: 'black',
+		      width: 2
+		    }
+		  },
+		  height: 500,
+		  width: 500,
+		  margin: {
+		    l: 50,
+		    r: 50,
+		    b: 50,
+		    t: 50,
+		    pad: 4
+		  },
+		  title: {
+		    text: 'Interactive Ternary Chart',
+		    font: {
+		      family: 'Arial',
+		      size: 24,
+		      color: 'black'
+		    }
+		  }
+		};
+
+		// create the chart
+		Plotly.newPlot('ternary-chart', data, layout);
+	</script>
+</body>
+</html>
