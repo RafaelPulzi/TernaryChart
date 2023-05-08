@@ -1,154 +1,154 @@
 * {
-    font-family: Helvetica;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    padding: 1rem;
-  }
-  
-  h1 {
-    margin-bottom: 1rem;
-  }
-  
-  button {
-    padding: 0.6rem 1.2rem;
-    background-color: #888;
-    color: #fff;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    opacity: 0.9;
-    font-size: 1rem;
-  }
+  font-family: Helvetica;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  .bt{
-    background-color: #007bff;
-  }
-  
-  button:hover {
-    opacity: 1;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
+body {
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #888;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.bt {
+  background-color: #007bff;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
 
 /*
 
 Popup Data Input
 
 */
-  #fade-dataInput {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 5;
-  }
-  
-  #modal-dataInput {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    max-width: 90%;
-    background-color: #fff;
-    padding: 1.2rem;
-    border-radius: 0.5rem;
-    z-index: 10;
-  }
-  
-  #fade,
-  #modal-dataInput {
-    transition: 0.5s;
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  #modal-body-dataInput p {
-    margin-bottom: 1rem;
-  }
-  
-  #modal-dataInput.hide,
-  #fade.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  #modal-dataInput.hide {
-    top: 0;
+#fade-dataInput {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
 
-  }
+#modal-dataInput {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
 
+#fade-dataInput,
+#modal-dataInput {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
 
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+#modal-body-dataInput p {
+  margin-bottom: 1rem;
+}
+
+#modal-dataInput.hide,
+#fade-dataInput.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-dataInput.hide {
+  top: 0;
+
+}
+
+/*
 /*
 
 Popup Points
 
 */
-  #fade-points {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 5;
-  }
+#fade-points {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
 
-  #modal-points {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    max-width: 90%;
-    background-color: #fff;
-    padding: 1.2rem;
-    border-radius: 0.5rem;
-    z-index: 10;
-  }
-  
-  #fade-points,
-  #modal-points {
-    transition: 0.5s;
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  #modal-body-points p {
-    margin-bottom: 1rem;
-  }
-  
-  #modal-points.hide,
-  #fade-points.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  #modal-points.hide {
-    top: 0;
-  }
+#modal-points {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-points,
+#modal-points {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-points p {
+  margin-bottom: 1rem;
+}
+
+#modal-points.hide,
+#fade-points.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-points.hide {
+  top: 0;
+}
 
 
 /*
@@ -166,7 +166,7 @@ Popup Lines
   z-index: 5;
 }
 
-#modal-lines  {
+#modal-lines {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -179,14 +179,14 @@ Popup Lines
   z-index: 10;
 }
 
-#fade-lines ,
-#modal-lines  {
+#fade-lines,
+#modal-lines {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-body-lines  p {
+#modal-body-lines p {
   margin-bottom: 1rem;
 }
 
@@ -215,7 +215,7 @@ Popup Information
   z-index: 5;
 }
 
-#modal-information  {
+#modal-information {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -228,14 +228,14 @@ Popup Information
   z-index: 10;
 }
 
-#fade-information ,
-#modal-information  {
+#fade-information,
+#modal-information {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-body-information  p {
+#modal-body-information p {
   margin-bottom: 1rem;
 }
 
@@ -265,7 +265,7 @@ Popup Apperance
   z-index: 5;
 }
 
-#modal-apperance  {
+#modal-apperance {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -278,14 +278,14 @@ Popup Apperance
   z-index: 10;
 }
 
-#fade-apperance ,
-#modal-apperance  {
+#fade-apperance,
+#modal-apperance {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-body-apperance  p {
+#modal-body-apperance p {
   margin-bottom: 1rem;
 }
 
@@ -314,7 +314,7 @@ Popup PrintExport
   z-index: 5;
 }
 
-#modal-printExport  {
+#modal-printExport {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -327,14 +327,14 @@ Popup PrintExport
   z-index: 10;
 }
 
-#fade-apperanceprintExport ,
-#modal-printExport  {
+#fade-apperanceprintExport,
+#modal-printExport {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-body-printExport  p {
+#modal-body-printExport p {
   margin-bottom: 1rem;
 }
 

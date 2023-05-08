@@ -1,97 +1,96 @@
 const closeModalButton = document.querySelector("#close-modal");
 
-  const openModalButtonDataInput = document.querySelector("#DataInput");
-  const modalDataInput = document.querySelector("#modal-dataInput");
-  const fadeDataInput = document.querySelector("#fade-dataInput");
+const openModalButtonDataInput = document.querySelector("#DataInput");
+const modalDataInput = document.querySelector("#modal-dataInput");
+const fadeDataInput = document.querySelector("#fade-dataInput");
 
-  const toggleModalData = () => {
-    modalDataInput.classList.toggle("hide");
-    fadeDataInput.classList.toggle("hide");
-  };
-  
-  [openModalButtonDataInput, closeModalButton, fadeDataInput].forEach((el) => {
-    el.addEventListener("click", () => toggleModalData());
-  });
+const toggleModalData = () => {
+  modalDataInput.classList.toggle("hide");
+  fadeDataInput.classList.toggle("hide");
+};
 
-  
-   
-
-  const openModalButtonPoints = document.querySelector("#Points");
-  const modalPoints = document.querySelector("#modal-points");
-  const fadePoints = document.querySelector("#fade-points");
-
-  const toggleModalPoints = () => {
-    modalPoints.classList.toggle("hide");
-    fadePoints.classList.toggle("hide");
-  };
-  
-  [openModalButtonPoints, closeModalButton, fadePoints].forEach((el) => {
-    el.addEventListener("click", () => toggleModalPoints());
-  });
+[openModalButtonDataInput, closeModalButton, fadeDataInput].forEach((el) => {
+  el.addEventListener("click", () => toggleModalData());
+});
 
 
 
+const openModalButtonPoints = document.querySelector("#Points");
+const modalPoints = document.querySelector("#modal-points");
+const fadePoints = document.querySelector("#fade-points");
 
-  const openModalButtonLines = document.querySelector("#Lines");
-  const modalLines = document.querySelector("#modal-lines");
-  const fadeLines = document.querySelector("#fade-lines");
+const toggleModalPoints = () => {
+  modalPoints.classList.toggle("hide");
+  fadePoints.classList.toggle("hide");
+};
 
-  const toggleModalLines = () => {
-    modalLines.classList.toggle("hide");
-    fadeLines.classList.toggle("hide");
-  };
-  
-  [openModalButtonLines, closeModalButton, fadeLines].forEach((el) => {
-    el.addEventListener("click", () => toggleModalLines());
-  });
+[openModalButtonPoints, closeModalButton, fadePoints].forEach((el) => {
+  el.addEventListener("click", () => toggleModalPoints());
+});
 
 
 
 
-  const openModalButtonInformation = document.querySelector("#Information");
-  const modalInformation = document.querySelector("#modal-information");
-  const fadeInformation = document.querySelector("#fade-information");
+const openModalButtonLines = document.querySelector("#Lines");
+const modalLines = document.querySelector("#modal-lines");
+const fadeLines = document.querySelector("#fade-lines");
 
-  const toggleModalInformation = () => {
-    modalInformation.classList.toggle("hide");
-    fadeInformation.classList.toggle("hide");
-  };
-  
-  [openModalButtonInformation, closeModalButton, fadeInformation].forEach((el) => {
-    el.addEventListener("click", () => toggleModalInformation());
-  });
-  
+const toggleModalLines = () => {
+  modalLines.classList.toggle("hide");
+  fadeLines.classList.toggle("hide");
+};
 
-
-
-  const openModalButtonApperance = document.querySelector("#Apperance");
-  const modalApperance = document.querySelector("#modal-apperance");
-  const fadeApperance = document.querySelector("#fade-apperance");
-
-  const toggleModalApperance = () => {
-    modalApperance.classList.toggle("hide");
-    fadeApperance.classList.toggle("hide");
-  };
-  
-  [openModalButtonApperance, closeModalButton, fadeApperance].forEach((el) => {
-    el.addEventListener("click", () => toggleModalApperance());
-  });
+[openModalButtonLines, closeModalButton, fadeLines].forEach((el) => {
+  el.addEventListener("click", () => toggleModalLines());
+});
 
 
 
 
-  const openModalButtonPrintExport = document.querySelector("#PrintExport");
-  const modalPrintExport = document.querySelector("#modal-printExport");
-  const fadePrintExport = document.querySelector("#fade-printExport");
+const openModalButtonInformation = document.querySelector("#Information");
+const modalInformation = document.querySelector("#modal-information");
+const fadeInformation = document.querySelector("#fade-information");
 
-  const toggleModalPrintExport = () => {
-    modalPrintExport.classList.toggle("hide");
-    fadePrintExport.classList.toggle("hide");
-  };
-  
-  [openModalButtonPrintExport, closeModalButton, fadePrintExport].forEach((el) => {
-    el.addEventListener("click", () => toggleModalPrintExport());
-  });
+const toggleModalInformation = () => {
+  modalInformation.classList.toggle("hide");
+  fadeInformation.classList.toggle("hide");
+};
+
+[openModalButtonInformation, closeModalButton, fadeInformation].forEach((el) => {
+  el.addEventListener("click", () => toggleModalInformation());
+});
+
+
+
+
+const openModalButtonApperance = document.querySelector("#Apperance");
+const modalApperance = document.querySelector("#modal-apperance");
+const fadeApperance = document.querySelector("#fade-apperance");
+
+const toggleModalApperance = () => {
+  modalApperance.classList.toggle("hide");
+  fadeApperance.classList.toggle("hide");
+};
+
+[openModalButtonApperance, closeModalButton, fadeApperance].forEach((el) => {
+  el.addEventListener("click", () => toggleModalApperance());
+});
+
+
+
+
+const openModalButtonPrintExport = document.querySelector("#PrintExport");
+const modalPrintExport = document.querySelector("#modal-printExport");
+const fadePrintExport = document.querySelector("#fade-printExport");
+
+const toggleModalPrintExport = () => {
+  modalPrintExport.classList.toggle("hide");
+  fadePrintExport.classList.toggle("hide");
+};
+
+[openModalButtonPrintExport, closeModalButton, fadePrintExport].forEach((el) => {
+  el.addEventListener("click", () => toggleModalPrintExport());
+});
 
 
 /*
@@ -137,7 +136,7 @@ btnInput.addEventListener("click", function(e) {
             Ternary Charty - START
 ==============================================
 
-*/ 
+*/
 
 const rawData = [
   { R: 1.00E+00, N: 2.00E+00, F: 3.00E+00, label: "point 1" },
@@ -167,39 +166,32 @@ const trace = {
   c: rawData.map((x) => x.F),
   text: rawData.map((x) => x.label),
   marker: {
-    color: 'red',
-    size: 10,
-    opacity: 0.7
+    symbol: 0,
+    color: "#DB7365",
+    size: 7,
+    line: { width: 2 },
   },
-  name: 'Data Points'
 };
 
-var data = [trace1];
-
-var layout = {
+const layout = {
   ternary: {
-    sum: 1,
-    aaxis: { title: 'A', ticksuffix: '', min: 0, max: 1, dtick: 0.1 },
-    baxis: { title: 'B', ticksuffix: '', min: 0, max: 1, dtick: 0.1 },
-    caxis: { title: 'C', ticksuffix: '', min: 0, max: 1, dtick: 0.1 },
-    bgcolor: '#fff',
-    line: {
-      color: 'black'
-    }
+    sum: 100,
+    aaxis: makeAxis("R", 0),
+    baxis: makeAxis("<br>N", 45),
+    caxis: makeAxis("<br>F", -45),
   },
-  width: 500,
-  height: 500,
-  margin: {
-    l: 50,
-    r: 50,
-    b: 50,
-    t: 50
-  },
-  hovermode: 'closest'
+  annotations: [
+    {
+      showarrow: false,
+      text: "Ternary Chart Simergy",
+      x: 0.5,
+      y: 1.3,
+      font: { size: 15 },
+    },
+  ],
 };
 
-Plotly.newPlot('chart', data, layout);
-
+Plotly.newPlot("plot", [trace], layout);
 /*
 
 ==============================================
@@ -207,4 +199,3 @@ Plotly.newPlot('chart', data, layout);
 ==============================================
 
 */
-
