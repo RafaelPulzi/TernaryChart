@@ -1,74 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-	<title>Interactive Ternary Chart</title>
-	<!-- include Plotly.js library -->
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Ternary Chart</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
+
 <body>
-	<!-- create a div for the chart -->
-	<div id="ternary-chart"></div>
 
-	<!-- JavaScript code to create the chart -->
-	<script>
-		// define data for the chart
-		var data = [{
-		  type: 'scatterternary',
-		  mode: 'markers',
-		  a: [0.1, 0.2, 0.3, 0.4, 0.5],
-		  b: [0.4, 0.3, 0.2, 0.1, 0.0],
-		  c: [0.5, 0.5, 0.5, 0.5, 0.5],
-		  marker: {
-		    size: 10,
-		    color: 'blue',
-		    symbol: 'circle'
-		  },
-		  text: ['Point A', 'Point B', 'Point C', 'Point D', 'Point E']
-		}];
+  <button alt="Data Input" id="DataInput" class="bt">
+    Data Input
+  </button>
 
-		// define layout for the chart
-		var layout = {
-		  ternary: {
-		    sum: 1,
-		    aaxis: {
-		      title: 'Component A',
-		      ticksuffix: '%'
-		    },
-		    baxis: {
-		      title: 'Component B',
-		      ticksuffix: '%'
-		    },
-		    caxis: {
-		      title: 'Component C',
-		      ticksuffix: '%'
-		    },
-		    bgcolor: 'white',
-		    line: {
-		      color: 'black',
-		      width: 2
-		    }
-		  },
-		  height: 500,
-		  width: 500,
-		  margin: {
-		    l: 50,
-		    r: 50,
-		    b: 50,
-		    t: 50,
-		    pad: 4
-		  },
-		  title: {
-		    text: 'Interactive Ternary Chart',
-		    font: {
-		      family: 'Arial',
-		      size: 24,
-		      color: 'black'
-		    }
-		  }
-		};
+  <button alt="Points" id="Points" class="bt">
+    Points
+  </button>
 
-		// create the chart
-		Plotly.newPlot('ternary-chart', data, layout);
-	</script>
+  <button alt="Lines" id="Lines" class="bt">
+    Lines
+  </button>
+
+  <button alt="Information" id="Information" class="bt">
+    Information
+  </button>
+
+  <button alt="Apperance" id="Apperance" class="bt">
+    Apperance
+  </button>
+
+  <button alt="Print and Export" id="PrintExport" class="bt">
+    Print and Export
+  </button>
+
+
+
+  <div id="fade-dataInput" class="hide"></div>
+  <div id="modal-dataInput" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Data Input</h2>
+    </div>
+    <div id="modal-body-dataInput"></div>
+    <form>
+      <label>R: </label>
+      <input type="number" id="inputR">
+      <p><br></p>
+    </form>
+    <form>
+      <label>N: </label>
+      <input type="number" id="inputN">
+      <p><br></p>
+    </form>
+    <form>
+      <label>F: </label>
+      <input type="number" id="inputF">
+      <p><br></p>
+    </form>
+    <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
+  </div>
+  </div>
+
+
+
+  <div id="fade-points" class="hide"></div>
+  <div id="modal-points" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Points</h2>
+    </div>
+    <div id="modal-body-points"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
+
+
+
+  <div id="fade-lines" class="hide"></div>
+  <div id="modal-lines" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Lines</h2>
+    </div>
+    <div class="modal-body-lines"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
+
+
+
+  <div id="fade-information" class="hide"></div>
+  <div id="modal-information" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Information</h2>
+    </div>
+    <div class="modal-body-Information"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
+
+
+
+  <div id="fade-apperance" class="hide"></div>
+  <div id="modal-apperance" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Apperance</h2>
+    </div>
+    <div class="modal-body-apperance"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
+
+
+
+  <div id="fade-printExport" class="hide"></div>
+  <div id="modal-printExport" class="hide">
+    <div class="modal-header">
+      <button id="close-modal">X</button>
+      <h2>Print and Export</h2>
+    </div>
+    <div class="modal-body-printExport"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
+
+
+  <!--JavaScript code for creating the chart-->
+  <div id="plot"></div>
+  <script src="script.js">
+  </script>
+
 </body>
+
 </html>

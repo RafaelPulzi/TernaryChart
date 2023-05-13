@@ -100,25 +100,43 @@ const toggleModalPrintExport = () => {
 ==============================================
 
 */
-/*
-const btnInput = document.querySelector("#insidePopupData")
 
-btnInput.addEventListener("click", function(e) {
-  e.preventDefault();
+const dataSend = document.querySelector("#modal-body-dataInput")
+const Rsend = document.querySelector("#inputR")
+const Nsend = document.querySelector("#inputN")
+const Fsend = document.querySelector("#inputF")
 
-  const r = document.querySelector("#inputR");
-  const n = document.querySelector("#inputN");
-  const f = document.querySelector("#inputF");
+function submit() {
+  fetch("http://localhost:8080/cadastrar",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        r: Rsend.value,
+        n: Nsend.value,
+        f: fsend.value,
+      })
+    })
+    .then(function (res) { console.log(res)})
+    .catch(function (res) {console.log(res)})
+    
+}
 
-  const valueR = r.valueR;
-  const valueN = n.value;
-  const valueF = f.value;
+function clean () {
+  Rsend.value = "";
+  Nsend.value = "";
+  fsend.value = "";
+};
 
-  console.log(valueR)
-  console.log(valueN)
-  console.log(valueF)
+dataSend.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  submit();
+
 });
-*/
 
 /*
 
