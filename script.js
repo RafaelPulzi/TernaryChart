@@ -107,7 +107,7 @@ const Nsend = document.querySelector("#inputN")
 const Fsend = document.querySelector("#inputF")
 
 function submit() {
-  fetch("http://localhost:8080/cadastrar",
+  fetch("http://localhost:8080/points",
     {
       headers: {
         'Accept': 'application/json',
@@ -135,7 +135,7 @@ dataSend.addEventListener('submit', function(event) {
   event.preventDefault();
 
   submit();
-
+  clean();
 });
 
 /*
@@ -145,7 +145,6 @@ dataSend.addEventListener('submit', function(event) {
 ==============================================
 
 */
-
 
 
 /*
