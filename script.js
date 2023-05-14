@@ -1,15 +1,14 @@
-const closeModalButton = document.querySelector("#close-modal");
-
 const openModalButtonDataInput = document.querySelector("#DataInput");
 const modalDataInput = document.querySelector("#modal-dataInput");
 const fadeDataInput = document.querySelector("#fade-dataInput");
+const closeModalButtonDataInput = document.querySelector("#close-modal-dataInput");
 
 const toggleModalData = () => {
   modalDataInput.classList.toggle("hide");
   fadeDataInput.classList.toggle("hide");
 };
 
-[openModalButtonDataInput, closeModalButton, fadeDataInput].forEach((el) => {
+[openModalButtonDataInput, closeModalButtonDataInput, fadeDataInput].forEach((el) => {
   el.addEventListener("click", () => toggleModalData());
 });
 
@@ -18,13 +17,14 @@ const toggleModalData = () => {
 const openModalButtonPoints = document.querySelector("#Points");
 const modalPoints = document.querySelector("#modal-points");
 const fadePoints = document.querySelector("#fade-points");
+const closeModalButtonPoints = document.querySelector("#close-modal-points");
 
 const toggleModalPoints = () => {
   modalPoints.classList.toggle("hide");
   fadePoints.classList.toggle("hide");
 };
 
-[openModalButtonPoints, closeModalButton, fadePoints].forEach((el) => {
+[openModalButtonPoints, closeModalButtonPoints, fadePoints].forEach((el) => {
   el.addEventListener("click", () => toggleModalPoints());
 });
 
@@ -34,13 +34,14 @@ const toggleModalPoints = () => {
 const openModalButtonLines = document.querySelector("#Lines");
 const modalLines = document.querySelector("#modal-lines");
 const fadeLines = document.querySelector("#fade-lines");
+const closeModalButtonLines = document.querySelector("#close-modal-lines");
 
 const toggleModalLines = () => {
   modalLines.classList.toggle("hide");
   fadeLines.classList.toggle("hide");
 };
 
-[openModalButtonLines, closeModalButton, fadeLines].forEach((el) => {
+[openModalButtonLines, closeModalButtonLines, fadeLines].forEach((el) => {
   el.addEventListener("click", () => toggleModalLines());
 });
 
@@ -50,13 +51,14 @@ const toggleModalLines = () => {
 const openModalButtonInformation = document.querySelector("#Information");
 const modalInformation = document.querySelector("#modal-information");
 const fadeInformation = document.querySelector("#fade-information");
+const closeModalButtonInformation = document.querySelector("#close-modal-information");
 
 const toggleModalInformation = () => {
   modalInformation.classList.toggle("hide");
   fadeInformation.classList.toggle("hide");
 };
 
-[openModalButtonInformation, closeModalButton, fadeInformation].forEach((el) => {
+[openModalButtonInformation, closeModalButtonInformation, fadeInformation].forEach((el) => {
   el.addEventListener("click", () => toggleModalInformation());
 });
 
@@ -66,13 +68,14 @@ const toggleModalInformation = () => {
 const openModalButtonApperance = document.querySelector("#Apperance");
 const modalApperance = document.querySelector("#modal-apperance");
 const fadeApperance = document.querySelector("#fade-apperance");
+const closeModalButtonApperance = document.querySelector("#close-modal-apperance");
 
 const toggleModalApperance = () => {
   modalApperance.classList.toggle("hide");
   fadeApperance.classList.toggle("hide");
 };
 
-[openModalButtonApperance, closeModalButton, fadeApperance].forEach((el) => {
+[openModalButtonApperance, closeModalButtonApperance, fadeApperance].forEach((el) => {
   el.addEventListener("click", () => toggleModalApperance());
 });
 
@@ -82,13 +85,14 @@ const toggleModalApperance = () => {
 const openModalButtonPrintExport = document.querySelector("#PrintExport");
 const modalPrintExport = document.querySelector("#modal-printExport");
 const fadePrintExport = document.querySelector("#fade-printExport");
+const closeModalButtonPrintExport = document.querySelector("#close-modal-printExport");
 
 const toggleModalPrintExport = () => {
   modalPrintExport.classList.toggle("hide");
   fadePrintExport.classList.toggle("hide");
 };
 
-[openModalButtonPrintExport, closeModalButton, fadePrintExport].forEach((el) => {
+[openModalButtonPrintExport, closeModalButtonPrintExport, fadePrintExport].forEach((el) => {
   el.addEventListener("click", () => toggleModalPrintExport());
 });
 
@@ -117,7 +121,7 @@ function submit() {
       body: JSON.stringify({
         r: Rsend.value,
         n: Nsend.value,
-        f: fsend.value,
+        f: Fsend.value,
       })
     })
     .then(function (res) { console.log(res)})
@@ -128,7 +132,7 @@ function submit() {
 function clean () {
   Rsend.value = "";
   Nsend.value = "";
-  fsend.value = "";
+  Fsend.value = "";
 };
 
 dataSend.addEventListener('submit', function(event) {
