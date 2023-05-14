@@ -170,12 +170,12 @@ function makeAxis(title, tickangle) {
   return {
     title: title,
     titlefont: { size: 20 },
-    tickangle: tickangle,
     tickfont: { size: 15 },
     tickcolor: "rgba(0,0,0,0)",
     ticklen: 5,
     showline: true,
     showgrid: true,
+    tickvals: [], // This will remove all tick labels, and also the grid...
   };
 }
 
@@ -196,7 +196,6 @@ const trace = {
 
 const layout = {
   ternary: {
-    sum: 100,
     aaxis: makeAxis("R", 0),
     baxis: makeAxis("<br>N", 45),
     caxis: makeAxis("<br>F", -45),
