@@ -1,3 +1,9 @@
+
+/*
+
+Pop-up's configuration
+
+*/ 
 const openModalButtonDataInput = document.querySelector("#DataInput");
 const modalDataInput = document.querySelector("#modal-dataInput");
 const fadeDataInput = document.querySelector("#fade-dataInput");
@@ -30,7 +36,7 @@ const toggleModalPoints = () => {
 
 
 
-
+/*
 const openModalButtonLines = document.querySelector("#Lines");
 const modalLines = document.querySelector("#modal-lines");
 const fadeLines = document.querySelector("#fade-lines");
@@ -44,7 +50,7 @@ const toggleModalLines = () => {
 [openModalButtonLines, closeModalButtonLines, fadeLines].forEach((el) => {
   el.addEventListener("click", () => toggleModalLines());
 });
-
+*/
 
 
 
@@ -64,7 +70,7 @@ const toggleModalInformation = () => {
 
 
 
-
+/*
 const openModalButtonApperance = document.querySelector("#Apperance");
 const modalApperance = document.querySelector("#modal-apperance");
 const fadeApperance = document.querySelector("#fade-apperance");
@@ -78,7 +84,7 @@ const toggleModalApperance = () => {
 [openModalButtonApperance, closeModalButtonApperance, fadeApperance].forEach((el) => {
   el.addEventListener("click", () => toggleModalApperance());
 });
-
+*/
 
 
 
@@ -96,6 +102,62 @@ const toggleModalPrintExport = () => {
   el.addEventListener("click", () => toggleModalPrintExport());
 });
 
+/*
+
+==============================================
+              DROP DOWN MENUS
+==============================================
+
+*/
+/*
+//Drop menu for the button Lines
+const dropdownBtnLines = document.getElementById("#Lines");
+const dropdownMenuLines = document.getElementById("#dropdown-menu-lines");
+
+
+const linksLines = dropdownMenuLines.getElementsByTagName("a");
+for (let i = 0; i < linksLines.length; i++) {
+  const button = document.createElement("button");
+  button.textContent = linksLines[i].textContent;
+  button.addEventListener("click", function() {
+    console.log("Option " + (i + 1) + " clicked.");
+  });
+  linksLines[i].parentNode.replaceChild(button, linksLines[i]);
+}
+
+dropdownBtn.addEventListener("click", function(event) {
+  event.stopPropagation(); // prevent click event from bubbling up to document
+  dropdownMenuLines.style.display = dropdownMenuLines.style.display === "block" ? "none" : "block";
+});
+
+document.addEventListener("click", function() {
+  dropdownMenuLines.style.display = "none";
+});s
+
+//Drop menu for the button Apperance
+const dropdownBtnApperance = document.getElementById("#Apperance");
+const dropdownMenuApperance = document.getElementById("dropdown-menu-Apperance");
+
+
+const linksApperance = dropdownMenuApperance.getElementsByTagName("a");
+for (let i = 0; i < linksApperance.length; i++) {
+  const button = document.createElement("button");
+  button.textContent = linksApperance[i].textContent;
+  button.addEventListener("click", function() {
+    console.log("Option " + (i + 1) + " clicked.");
+  });
+  linksApperance[i].parentNode.replaceChild(button, linksApperance[i]);
+}
+
+dropdownBtn.addEventListener("click", function(event) {
+  event.stopPropagation(); // prevent click event from bubbling up to document
+  dropdownMenuApperance.style.display = dropdownMenuApperance.style.display === "block" ? "none" : "block";
+});
+
+document.addEventListener("click", function() {
+  dropdownMenuApperance.style.display = "none";
+});s
+*/
 
 /*
 
@@ -105,42 +167,46 @@ const toggleModalPrintExport = () => {
 
 */
 
-const dataSend = document.querySelector("#modal-body-dataInput")
-const Rsend = document.querySelector("#inputR")
-const Nsend = document.querySelector("#inputN")
-const Fsend = document.querySelector("#inputF")
+const dataForm = document.getElementById("#dataForm");
+const Rsend = document.querySelector("#inputR");
+const Nsend = document.querySelector("#inputN");
+const Fsend = document.querySelector("#inputF");
 
-function submit() {
-  fetch("http://localhost:8080/points",
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify({
-        r: Rsend.value,
-        n: Nsend.value,
-        f: Fsend.value,
-      })
+function submit(event) {
+  event.preventDefault();
+
+  fetch("http://localhost:8080/points", {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify({
+      r: Rsend.value,
+      n: Nsend.value,
+      f: Fsend.value,
     })
-    .then(function (res) { console.log(res)})
-    .catch(function (res) {console.log(res)})
-    
+  })
+    .then(function (res) {
+      console.log(res);
+      // Handle the response here
+    })
+    .catch(function (error) {
+      console.log(error);
+      // Handle errors here
+    });
+
+  clean();
 }
 
-function clean () {
+function clean() {
   Rsend.value = "";
   Nsend.value = "";
   Fsend.value = "";
-};
+}
 
-dataSend.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  submit();
-  clean();
-});
+document.getElementById("insidePopupData").addEventListener('click', submit);
+document.getElementById("close-modal-dataInput").addEventListener('click', clean);
 
 /*
 
@@ -182,6 +248,7 @@ function makeAxis(title, tickangle) {
 const trace = {
   type: "scatterternary",
   mode: "markers",
+  
   a: rawData.map((x) => x.R),
   b: rawData.map((x) => x.N),
   c: rawData.map((x) => x.F),

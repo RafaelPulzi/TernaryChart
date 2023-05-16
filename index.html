@@ -20,17 +20,37 @@
     Points
   </button>
 
+  <!--Drop vertical menu-->
   <button alt="Lines" id="Lines" class="bt">
     Lines
   </button>
-
+  <!--
+  <ul id="dropdown-menu-lines" class="dropdown-menu">
+    <li><button>Sources</button></li>
+    <li><button>Sustainable</button></li>
+    <li><button>Sensibility</button></li>
+    <li><button>Simergy</button></li>
+  </ul>
+-->
   <button alt="Information" id="Information" class="bt">
     Information
   </button>
+  
 
+  <!--Drop vertical menu-->
   <button alt="Apperance" id="Apperance" class="bt">
     Apperance
   </button>
+  <!--
+  <ul id="dropdown-menu-Apperance" class="dropdown-menu">
+    <li><button>Axes</button></li>
+    <li><button>Resources</button></li>
+    <li><button>Sustainability</button></li>
+    <li><button>Sensibility</button></li>
+    <li><button>Simergy</button></li>
+    <li><button>Zoom</button></li>
+  </ul>
+  -->
 
   <button alt="Print and Export" id="PrintExport" class="bt">
     Print and Export
@@ -45,22 +65,21 @@
       <h2>Data Input</h2>
     </div>
     <div id="modal-body-dataInput"></div>
-    <form>
+    <form id="dataForm" action="">
       <label>R: </label>
       <input type="number" id="inputR">
       <p><br></p>
-    </form>
-    <form>
+  
       <label>N: </label>
       <input type="number" id="inputN">
       <p><br></p>
-    </form>
-    <form>
+
       <label>F: </label>
       <input type="number" id="inputF">
       <p><br></p>
     </form>
     <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
+  </form>
   </div>
   </div>
 
@@ -80,7 +99,7 @@
   </div>
 
 
-
+<!--
   <div id="fade-lines" class="hide"></div>
   <div id="modal-lines" class="hide">
     <div class="modal-header">
@@ -93,7 +112,7 @@
       ad alias!</p>
   </div>
   </div>
-
+-->
 
 
   <div id="fade-information" class="hide"></div>
@@ -110,7 +129,7 @@
   </div>
 
 
-
+<!--
   <div id="fade-apperance" class="hide"></div>
   <div id="modal-apperance" class="hide">
     <div class="modal-header">
@@ -123,7 +142,7 @@
       ad alias!</p>
   </div>
   </div>
-
+-->
 
 
   <div id="fade-printExport" class="hide"></div>

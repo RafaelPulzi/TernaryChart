@@ -43,6 +43,37 @@ button:hover {
 
 /*
 
+Drop down menu style
+
+*/
+/*
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1;
+}
+
+
+
+.dropdown-menu {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+*/
+
+
+/*
+
 Popup Data Input
 
 */
