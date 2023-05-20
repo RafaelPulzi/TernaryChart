@@ -8,53 +8,53 @@
   <title>Interactive Ternary Chart</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 </head>
 
 <body>
+  <div class="button-container">
+    <div>
+      <button alt="Data Input" id="DataInput" class="bt">
+        Data Input
+      </button>
+    </div>
 
-  <button alt="Data Input" id="DataInput" class="bt">
-    Data Input
-  </button>
 
-  <button alt="Points" id="Points" class="bt">
-    Points
-  </button>
+    <!--Drop vertical menu-->
+    <div>
+      <button alt="Lines" onclick="DisplayLinesMenu()" id="Lines" class="bt">
+        Lines
+      </button>
+      <ul id="dropdown-menu-lines" class="dropdown-menu" style="display: none;">
+        <li><button id="sources">Sources</button></li>
+        <li><button id="Sustainable">Sustainable</button></li><!--CREATED-->
+        <li><button id="Sensibility">Sensibility</button></li>
+        <li><button id="Simergy">Simergy</button></li>
+      </ul>
+    </div>
 
-  <!--Drop vertical menu-->
-  <button alt="Lines" id="Lines" class="bt">
-    Lines
-  </button>
-  <!--
-  <ul id="dropdown-menu-lines" class="dropdown-menu">
-    <li><button>Sources</button></li>
-    <li><button>Sustainable</button></li>
-    <li><button>Sensibility</button></li>
-    <li><button>Simergy</button></li>
-  </ul>
--->
-  <button alt="Information" id="Information" class="bt">
-    Information
-  </button>
-  
 
-  <!--Drop vertical menu-->
-  <button alt="Apperance" id="Apperance" class="bt">
-    Apperance
-  </button>
-  <!--
-  <ul id="dropdown-menu-Apperance" class="dropdown-menu">
-    <li><button>Axes</button></li>
-    <li><button>Resources</button></li>
-    <li><button>Sustainability</button></li>
-    <li><button>Sensibility</button></li>
-    <li><button>Simergy</button></li>
-    <li><button>Zoom</button></li>
-  </ul>
-  -->
 
-  <button alt="Print and Export" id="PrintExport" class="bt">
-    Print and Export
-  </button>
+    <!--Drop vertical menu-->
+    <div>
+      <button alt="Apperance" onclick="DisplayApperanceMenu()" id="Apperance" class="bt">
+        Apperance
+      </button>
+      <ul id="dropdown-menu-apperance" class="dropdown-menu" style="display: none;">
+        <li><button>Axes</button></li>
+        <li><button>Resources</button></li>
+        <li><button>Sustainability</button></li>
+        <li><button>Sensibility</button></li>
+        <li><button>Simergy</button></li>
+      </ul>
+    </div>
+
+    <div>
+      <button alt="Print and Export" id="PrintExport" class="bt">
+        Print and Export
+      </button>
+    </div>
+  </div>
 
 
 
@@ -66,10 +66,14 @@
     </div>
     <div id="modal-body-dataInput"></div>
     <form id="dataForm" action="">
+      <label>Name: </label>
+      <input id="inputName">
+      <p><br></p>
+
       <label>R: </label>
       <input type="number" id="inputR">
       <p><br></p>
-  
+
       <label>N: </label>
       <input type="number" id="inputN">
       <p><br></p>
@@ -79,57 +83,29 @@
       <p><br></p>
     </form>
     <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
-  </form>
+    </form>
   </div>
   </div>
 
-
-
-  <div id="fade-points" class="hide"></div>
-  <div id="modal-points" class="hide">
+  <!--Sustainable POP UP-->
+  <div id="fade-lines-Sustainable" class="hide"></div>
+  <div id="modal-lines-Sustainable" class="hide">
     <div class="modal-header">
-      <button id="close-modal-points">X</button>
-      <h2>Points</h2>
-    </div>
-    <div id="modal-body-points"></div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
-      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
-      ad alias!</p>
-  </div>
-  </div>
-
-
-<!--
-  <div id="fade-lines" class="hide"></div>
-  <div id="modal-lines" class="hide">
-    <div class="modal-header">
-      <button id="close-modal-lines">X</button>
+      <button id="close-modal-lines-Sustainable">X</button>
       <h2>Lines</h2>
     </div>
-    <div class="modal-body-lines"></div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
-      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
-      ad alias!</p>
-  </div>
-  </div>
--->
-
-
-  <div id="fade-information" class="hide"></div>
-  <div id="modal-information" class="hide">
-    <div class="modal-header">
-      <button id="close-modal-information">X</button>
-      <h2>Information</h2>
-    </div>
-    <div class="modal-body-Information"></div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
-      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
-      ad alias!</p>
+    <div class="modal-body-lines-Sustainable"></div>
+    <!--
+    <button onclick="decreaseY()">Decrease Y</button>
+    <button onclick="increaseY()">Increase Y</button>
+    <button onclick="toggleLine()">Toggle Line</button>
+    -->
   </div>
   </div>
 
 
-<!--
+
+  <!--
   <div id="fade-apperance" class="hide"></div>
   <div id="modal-apperance" class="hide">
     <div class="modal-header">
@@ -152,17 +128,24 @@
       <h2>Print and Export</h2>
     </div>
     <div class="modal-body-printExport"></div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
-      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
-      ad alias!</p>
+    <button id="exportPNG">Export as PNG</button>
+    <button id="exportJPEG">Export as JPEG</button>
+    <button id="exportSVG">Export as SVG</button>
   </div>
   </div>
 
 
   <!--JavaScript code for creating the chart-->
-  <div id="plot"></div>
-  <script src="script.js">
-  </script>
+  <div class="chart-container">
+    <div id="plot"></div>
+    <svg class="overlay-figure">
+      <line class="line" id="lineAnalisy" x1="27%" y1="86%" x2="73%" y2="86%" ></line>
+    </svg>
+  </div>
+  <button onclick="decreaseY()">Decrease Y</button>
+  <button onclick="increaseY()">Increase Y</button>
+  <button onclick="toggleLine()">Toggle Line</button>
+  <script src="script.js"></script>
 
 </body>
 
