@@ -24,18 +24,39 @@ const toggleModalData = () => {
 LINES PUP-UPS INSIDE DROP VERTICAL MENU
 
 */
+/*
+
+LINES PUP-UPS INSIDE DROP VERTICAL MENU
+
+*/
+//SOURCES POPUP
+const openModalButtonLinesSources = document.querySelector("#Sources");
+const modalLinesSources = document.querySelector("#modal-lines-Sources");
+const fadeLinesSources = document.querySelector("#fade-lines-Sources");
+const closeModalButtonLinesSources = document.querySelector("#close-modal-lines-Sources");
+
+const toggleModalLinesSources = () => {
+  modalLinesSources.classList.toggle("hide");
+  fadeLinesSources.classList.toggle("hide");
+};
+
+[openModalButtonLinesSources, closeModalButtonLinesSources, fadeLinesSources].forEach((el) => {
+  el.addEventListener("click", () => toggleModalLinesSources());
+});
+
+//SUSTAINABLE POPUP
 const openModalButtonLinesSustainable = document.querySelector("#Sustainable");
 const modalLinesSustainable = document.querySelector("#modal-lines-Sustainable");
 const fadeLinesSustainable = document.querySelector("#fade-lines-Sustainable");
 const closeModalButtonLinesSustainable = document.querySelector("#close-modal-lines-Sustainable");
 
-const toggleModalLines = () => {
+const toggleModalLinesSustainable = () => {
   modalLinesSustainable.classList.toggle("hide");
   fadeLinesSustainable.classList.toggle("hide");
 };
 
 [openModalButtonLinesSustainable, closeModalButtonLinesSustainable, fadeLinesSustainable].forEach((el) => {
-  el.addEventListener("click", () => toggleModalLines());
+  el.addEventListener("click", () => toggleModalLinesSustainable());
 });
 
 
@@ -290,6 +311,8 @@ function makeAxis(title, tickangle) {
   };
 }
 
+
+
 const trace = {
   type: "scatterternary",
   mode: "markers",
@@ -305,6 +328,9 @@ const trace = {
     line: { width: 2 },
   },
 };
+
+
+
 
 const layout = {
   ternary: {
@@ -324,21 +350,6 @@ const layout = {
 };
 
 Plotly.newPlot("plot", [trace], layout).then(() => {
-
-  // Get the SVG container
-  const svgContainer = document.querySelector('.scatterlayer');
-
-  // Create a new group element
-  const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-
-  // Get the line element
-  const line2 = document.querySelector('.line');
-
-  // Append the line element to the group
-  group.appendChild(line2);
-
-  // Append the group to the SVG container
-  svgContainer.appendChild(group);
   // Get the ternary chart dimensions
   const chart = document.querySelector('.scatterternary');
   const chartRect = chart.getBoundingClientRect();
@@ -354,14 +365,7 @@ Plotly.newPlot("plot", [trace], layout).then(() => {
   line.setAttribute('x2', `${chartRect.left + chartWidth}px`);
   line.setAttribute('y2', `${chartRect.top}px`);
 
-  // Adjust the circle coordinates based on the chart dimensions
-  const circle = document.querySelector('.circle');
-  const cAxis = document.querySelector('.scatterternary .ytitle');
-  const cAxisRect = cAxis.getBoundingClientRect();
-  const cAxisX = chartRect.left + (chartWidth * 0.5);
-  const cAxisY = cAxisRect.top - cAxisRect.height * 0.5;
-  circle.setAttribute('cx', `${cAxisX}px`);
-  circle.setAttribute('cy', `${cAxisY}px`);
+
 });
 
 
