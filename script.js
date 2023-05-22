@@ -235,7 +235,76 @@ getData();
 /*
 
 ==============================================
-            SUSTAINABLE LINE
+              PUT - START
+==============================================
+
+*/
+
+function updateData(id, newData) {
+  fetch(`http://localhost:8080/points/${id}`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "PUT",
+    body: JSON.stringify(newData)
+  })
+    .then(function (res) {
+      console.log(res);
+      // Handle the response here
+    })
+    .catch(function (error) {
+      console.log(error);
+      // Handle errors here
+    });
+}
+
+/*
+
+==============================================
+              PUT - END
+==============================================
+
+*/
+
+/*
+
+==============================================
+              DELETE - START
+==============================================
+
+*/
+
+function deleteData(id) {
+  fetch(`http://localhost:8080/points/${id}`, {
+    method: "DELETE",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(function (res) {
+      console.log(res);
+      // Handle the response here
+    })
+    .catch(function (error) {
+      console.log(error);
+      // Handle errors here
+    });
+}
+
+/*
+
+==============================================
+              DELETE - END
+==============================================
+
+*/
+
+/*
+
+==============================================
+            SOURCE   LINE
 ==============================================
 
 */
