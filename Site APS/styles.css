@@ -1,0 +1,99 @@
+
+body {
+    margin: 0, black;
+    padding: 0;
+    background-color:  #B0C4DE ;
+  }
+  
+  header {
+    background-color: #c8d9e0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 75px;
+    background-color: #b8c7cf;
+  }
+  img.logo{
+    max-width:100px;
+    max-height:75px;
+    width: auto;
+    height: auto;
+    object-fit: fill;
+  }
+  
+  .Devs {
+    text-align: right;
+    font-weight: bold;
+    font: size 5px; 
+    margin: 2px;
+    line-height:10px;
+  }
+  
+  .sidebar {
+    width: 17%;
+    color: #000;
+    background-color: #c8d9e063;
+    margin: 5px, black;
+    padding-right: 20px;
+    height: 100%;
+    display: inline;
+    float: left;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    
+  }
+  
+  .pontos {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .RNF{
+    text-align: left;
+    margin-left: 10%;
+  }
+  
+  .pontos li {
+    color: #000;
+    text-align: center;
+    margin: 5px, black;
+  }
+  
+  .content {
+    margin-left: 20%;
+    padding: 20px;
+  }
+  
+  .grafico {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buttons button {
+    background-color: #89b9d0;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    flex-grow: 5;
+    margin: 7px;
+  }
+  
+  footer {
+    background-color: #c8d9e0;
+    padding: 7px;
+    text-align: center;
+    clear: both;
+    color: #000;
+  }
