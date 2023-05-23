@@ -219,7 +219,9 @@ function getData() {
       console.log(error);
       // Handle errors here
     });
+    
 }
+
 
 
 getData();
@@ -491,6 +493,19 @@ getData();
 ==============================================
 
 */
+
+//SHOW THE DATA IN THE HTML FILE
+function updateDataContainer(data) {
+  const dataContainer = document.getElementById("dataContainer");
+  dataContainer.innerHTML = ""; // Clear previous content
+
+  for (let i = 0; i < data.length; i++) {
+    const pointParagraph = document.createElement("p");
+    pointParagraph.textContent = `${data[i].nm_ponto}, R: ${data[i].r_ponto}, N: ${data[i].n_ponto}, F: ${data[i].f_ponto}`;
+    dataContainer.appendChild(pointParagraph);
+  }
+}
+updateDataContainer(data);
 
 /*
 ==============================================
