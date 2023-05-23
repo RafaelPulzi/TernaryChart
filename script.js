@@ -309,14 +309,17 @@ function deleteData(id) {
 
 */
 
-const lineElement = document.querySelector('#lineAnalisy');
+const lineElementNtoF = document.querySelector('#lineAnalisyNtoF');
+const lineElementRtoN = document.querySelector('#lineAnalisyRtoN');
+const lineElementFtoR = document.querySelector('#lineAnalisyFtoR');
+
 let isLineVisible = true;
 
 function toggleLine() {
     if (isLineVisible) {
-        lineElement.style.display = 'none'; // Hide the line
+        lineElementNtoF.style.display = 'none'; // Hide the line
     } else {
-        lineElement.style.display = 'block'; // Show the line
+        lineElementNtoF.style.display = 'block'; // Show the line
     }
     isLineVisible = !isLineVisible;
 }
@@ -325,8 +328,8 @@ let y1 = 82;
 let y2 = 82;
 
 function updateLine() {
-    lineElement.setAttribute('y1', `${y1}%`);
-    lineElement.setAttribute('y2', `${y2}%`);
+    lineElementNtoF.setAttribute('y1', `${y1}%`);
+    lineElementNtoF.setAttribute('y2', `${y2}%`);
 }
 
 function decreaseY() {
@@ -403,11 +406,46 @@ const trace = {
     size: 7,
     line: { width: 2 },
   },
+  name: "Points"
 };
 
 
+/*===========SIMERGY POINT===========*/ 
 
+const sumPoints = updatedData.reduce(
+  (acc, point) => {
+    acc.R += point.R;
+    acc.N += point.N;
+    acc.F += point.F;
+    return acc;
+  },
+  { R: 0, N: 0, F: 0 }
+);
 
+const averagePoint = {
+  R: sumPoints.R / updatedData.length,
+  N: sumPoints.N / updatedData.length,
+  F: sumPoints.F / updatedData.length,
+};
+
+const averageTrace = {
+  type: "scatterternary",
+  mode: "markers",
+  a: [averagePoint.R],
+  b: [averagePoint.N],
+  c: [averagePoint.F],
+  marker: {
+    symbol: "circle",
+    size: 10,
+    color: "green",
+    line: { width: 1, color: "black" },
+  },
+  line: { color: "green", width: 2 },
+  connectgaps: true,
+  name: "Simergy Point"
+};
+/*===========SIMERGY POINT===========*/ 
+ 
 const layout = {
   ternary: {
     aaxis: makeAxis("R", 0),
@@ -425,7 +463,7 @@ const layout = {
   ],
 };
 
-Plotly.newPlot("plot", [trace], layout).then(() => {
+Plotly.newPlot("plot", [trace, averageTrace], layout).then(() => {
   // Get the ternary chart dimensions
   const chart = document.querySelector('.scatterternary');
   const chartRect = chart.getBoundingClientRect();

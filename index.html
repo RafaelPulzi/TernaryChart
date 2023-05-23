@@ -26,8 +26,8 @@
         Lines
       </button>
       <ul id="dropdown-menu-lines" class="dropdown-menu" style="display: none;">
-        <li><button id="Sources">Sources</button></li>
-        <li><button id="Sustainable">Sustainable</button></li><!--CREATED-->
+        <li><button id="Sources">Sources</button></li><!--CREATED-->
+        <li><button id="Sustainable">Sustainable</button></li>
         <li><button id="Sensibility">Sensibility</button></li>
         <li><button id="Simergy">Simergy</button></li>
       </ul>
@@ -92,12 +92,18 @@
   <div id="modal-lines-Sources" class="hide">
     <div class="modal-header">
       <button id="close-modal-lines-Sources">X</button>
-      <h2>Lines</h2>
+      <h2>Sources</h2>
     </div>
     <div class="modal-body-lines-Sources"></div>
     <button onclick="decreaseY()">Decrease Y</button>
     <button onclick="increaseY()">Increase Y</button>
-    <button onclick="toggleLine()">Toggle Line</button>
+    <button onclick="toggleLine()">Toggle Line N to F</button></br></br>
+    <button onclick="decreaseY()">Decrease Y</button>
+    <button onclick="increaseY()">Increase Y</button>
+    <button onclick="toggleLine()">Toggle Line R to N</button></br></br>
+    <button onclick="decreaseY()">Decrease Y</button>
+    <button onclick="increaseY()">Increase Y</button>
+    <button onclick="toggleLine()">Toggle Line F to R</button></br></br>
   </div>
   </div>
   
@@ -150,7 +156,10 @@
   <div class="chart-container">
     <div id="plot"></div>
     <svg class="overlay-figure">
-      <line class="line" id="lineAnalisy" x1="27%" y1="86%" x2="73%" y2="86%" style = "display: none;"></line>
+      <!--style = "display: none;"-->
+      <line class="line" id="lineAnalisyNtoF" x1="24%" y1="86%" x2="69%" y2="86%" ></line>
+      <line class="line" id="lineAnalisyRtoN" x1="27.25%" y1="89%" x2="47.8%" y2="15%" ></line>
+      <line class="line" id="lineAnalisyFtoR" x1="64.62%" y1="89%" x2="43.8%" y2="15%" ></line>
     </svg>
   </div>
   <script src="script.js"></script>
