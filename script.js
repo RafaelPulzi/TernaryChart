@@ -135,7 +135,7 @@ function DisplayApperanceMenu(){
 
 */
 
-const dataForm = document.getElementById("#dataForm");
+const dataForm = document.getElementById("dataForm");
 const NameSend = document.querySelector("#inputName");  
 const Rsend = document.querySelector("#inputR");
 const Nsend = document.querySelector("#inputN");
@@ -151,10 +151,10 @@ function submit(event) {
     },
     method: "POST",
     body: JSON.stringify({
-      name: NameSend.value,
-      r: Rsend.value,
-      n: Nsend.value,
-      f: Fsend.value,
+      nm_ponto: NameSend.value,
+      r_ponto: Rsend.value,
+      n_ponto: Nsend.value,
+      f_ponto: Fsend.value,
     })
   })
     .then(function (res) {
@@ -213,7 +213,7 @@ function getData() {
     })
     .then(function (data) {
       console.log(data);
-      // Process the retrieved data here
+      updateChart(data);
     })
     .catch(function (error) {
       console.log(error);
@@ -349,7 +349,6 @@ function increaseY() {
 
 updateLine();
 
-
 /*
 
 ==============================================
@@ -358,15 +357,23 @@ updateLine();
 
 */
 
-
-
+function updateChart(data) {
+  // Map the retrieved data to the required format for the chart
+  const updatedData = data.map((point) => ({
+    R: point.r_ponto,
+    N: point.n_ponto,
+    F: point.f_ponto,
+    label: point.nm_ponto,
+  }));
+ 
+/*
 const rawData = [
   { R: 1.00E+00, N: 2.00E+00, F: 3.00E+00, label: "point 1" },
   { R: 4.00E+00, N: 5.00E+00, F: 6.00E+00, label: "point 2" },
   { R: 1.00E+00, N: 1.00E+00, F: 1.00E+00, label: "point 3" },
  
 ];
-
+*/
 function makeAxis(title, tickangle) {
   return {
     title: title,
@@ -386,10 +393,10 @@ const trace = {
   type: "scatterternary",
   mode: "markers",
   
-  a: rawData.map((x) => x.R),
-  b: rawData.map((x) => x.N),
-  c: rawData.map((x) => x.F),
-  text: rawData.map((x) => x.label),
+  a: updatedData.map((x) => x.R),
+  b: updatedData.map((x) => x.N),
+  c: updatedData.map((x) => x.F),
+  text: updatedData.map((x) => x.label),
   marker: {
     symbol: 0,
     color: "#DB7365",
@@ -437,6 +444,7 @@ Plotly.newPlot("plot", [trace], layout).then(() => {
 
 });
 
+getData();
 
 /*
 
@@ -495,4 +503,4 @@ function exportChart(format, filename) {
   }
 }
 
-
+}
