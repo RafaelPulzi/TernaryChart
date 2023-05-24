@@ -59,6 +59,21 @@ const toggleModalLinesSustainable = () => {
   el.addEventListener("click", () => toggleModalLinesSustainable());
 });
 
+//Sensibility POPUP
+const openModalButtonLinesSensibility = document.querySelector("#Sensibility");
+const modalLinesSensibility = document.querySelector("#modal-lines-Sensibility");
+const fadeLinesSensibility = document.querySelector("#fade-lines-Sensibility");
+const closeModalButtonLinesSensibility = document.querySelector("#close-modal-lines-Sensibility");
+
+const toggleModalLinesSensibility = () => {
+  modalLinesSensibility.classList.toggle("hide");
+  fadeLinesSensibility.classList.toggle("hide");
+};
+
+[openModalButtonLinesSensibility, closeModalButtonLinesSensibility, fadeLinesSensibility].forEach((el) => {
+  el.addEventListener("click", () => toggleModalLinesSensibility());
+});
+
 
 
 
@@ -310,49 +325,156 @@ function deleteData(id) {
 ==============================================
 
 */
-
-const lineElementNtoF = document.querySelector('#lineAnalisyNtoF');
-const lineElementRtoN = document.querySelector('#lineAnalisyRtoN');
-const lineElementFtoR = document.querySelector('#lineAnalisyFtoR');
-
 let isLineVisible = true;
-
-function toggleLine() {
-    if (isLineVisible) {
-        lineElementNtoF.style.display = 'none'; // Hide the line
-    } else {
-        lineElementNtoF.style.display = 'block'; // Show the line
-    }
-    isLineVisible = !isLineVisible;
+const lineElementNtoF = document.querySelector('#lineAnalisyNtoF');
+function toggleLineNtoF() {
+  if (isLineVisible) {
+      lineElementNtoF.style.display = 'none'; // Hide the line
+  } else {
+      lineElementNtoF.style.display = 'block'; // Show the line
+  }
+  isLineVisible = !isLineVisible;
 }
 
-let y1 = 82;
-let y2 = 82;
+let y1 = 86;
+let y2 = 86;
 
-function updateLine() {
-    lineElementNtoF.setAttribute('y1', `${y1}%`);
-    lineElementNtoF.setAttribute('y2', `${y2}%`);
+function updateLineNtoF() {
+  lineElementNtoF.setAttribute('y1', `${y1}%`);
+  lineElementNtoF.setAttribute('y2', `${y2}%`);
 }
 
-function decreaseY() {
-    y1 -= 1;
-    y2 -= 1;
-    // Check lower limit
-    if (y1 < 22) y1 = 22;
-    if (y2 < 22) y2 = 22;
-    updateLine();
+function decreaseYNtoF() {
+  y1 -= 1;
+  y2 -= 1;
+  // LOW limit
+  if (y1 < 22) y1 = 22;
+  if (y2 < 22) y2 = 22;
+  updateLineNtoF();
 }
 
-function increaseY() {
-    y1 += 1;
-    y2 += 1;
-    // Check upper limit
-    if (y1 > 82) y1 = 82;
-    if (y2 > 82) y2 = 82;
-    updateLine();
+function increaseYNtoF() {
+  y1 += 1;
+  y2 += 1;
+  // TOP limit
+  if (y1 > 86) y1 = 86;
+  if (y2 > 86) y2 = 86;
+  updateLineNtoF();
 }
 
-updateLine();
+
+const lineElementRtoN = document.querySelector('#lineAnalisyRtoN');
+function toggleLineRtoN() {
+  if (isLineVisible) {
+      lineElementRtoN.style.display = 'none'; // Hide the line
+  } else {
+      lineElementRtoN.style.display = 'block'; // Show the line
+  }
+  isLineVisible = !isLineVisible;
+}
+
+let y1RtoN = 89;
+let y2RtoN = 15;
+let x1RtoN = 38.25;
+let x2RtoN = 48.40;
+
+function updateLineRtoN() {
+  lineElementRtoN.setAttribute('y1', `${y1RtoN}%`);
+  lineElementRtoN.setAttribute('y2', `${y2RtoN}%`);
+  lineElementRtoN.setAttribute('x1', `${x1RtoN}%`);
+  lineElementRtoN.setAttribute('x2', `${x2RtoN}%`);
+}
+
+function decreaseRtoN() {
+  y1RtoN -= 1;
+  y2RtoN -= 1;
+  x1RtoN -= 1;
+  x2RtoN -= 1;
+  // LOW limit
+  if (y1RtoN > 89) y1RtoN = 89;
+  if (y2RtoN > 15) y2RtoN = 15;
+  if (x1RtoN > 38.25) x1RtoN = 38.25;
+  if (x2RtoN > 48.40) x2RtoN = 48.40;
+  /*
+  if (y1RtoN < 22) y1 = 22;
+  if (y2RtoN < 22) y2 = 22;
+  if (x1RtoN < 22) x1 = 22;
+  if (x2RtoN < 22) x2 = 22;
+  */
+  updateLineRtoN();
+}
+
+function increaseRtoN() {
+  y1RtoN += 1;
+  y2RtoN += 1;
+  x1RtoN += 1;
+  x2RtoN += 1;
+  // TOP limit
+  
+
+  updateLineRtoN();
+}
+
+
+const lineElementFtoR = document.querySelector('#lineAnalisyFtoR');
+function toggleLineFtoR() {
+  if (isLineVisible) {
+      lineElementFtoR.style.display = 'none';
+  } else {
+      lineElementFtoR.style.display = 'block'; 
+  }
+  isLineVisible = !isLineVisible;
+}
+
+let y1FtoR = 89;
+let y2FtoR = 15;
+let x1FtoR = 56.7;
+let x2FtoR = 46.5;
+
+function updateLineFtoR() {
+  lineElementFtoR.setAttribute('y1', `${y1FtoR}%`);
+  lineElementFtoR.setAttribute('y2', `${y2FtoR}%`);
+  lineElementFtoR.setAttribute('x1', `${x1FtoR}%`);
+  lineElementFtoR.setAttribute('x2', `${x2FtoR}%`);
+}
+
+function decreaseFtoR() {
+  y1FtoR -= 1;
+  y2FtoR -= 1;
+  x1FtoR -= 1;
+  x2FtoR -= 1;
+  // LOW limit
+  /*
+  if (y1FtoR < 22) y1 = 22;
+  if (y2FtoR < 22) y2 = 22;
+  if (x1FtoR < 22) x1 = 22;
+  if (x2FtoR < 22) x2 = 22;
+  */
+  updateLineFtoR();
+}
+
+function increaseFtoR() {
+  y1FtoR += 1;
+  y2FtoR += 1;
+  x1FtoR += 1;
+  x2FtoR += 1;
+  // TOP limit
+  /*
+  if (y1FtoR > 82) y1FtoR = 82;
+  if (y2FtoR > 82) y2FtoR = 82;
+  if (x1FtoR > 82) x1FtoR = 82;
+  if (x2FtoR > 82) x2FtoR = 82;    
+  */   
+  updateLineFtoR();
+}
+
+
+
+updateLineNtoF();
+
+updateLineRtoN();
+
+updateLineFtoR();
 
 /*
 
@@ -474,7 +596,7 @@ Plotly.newPlot("plot", [trace, averageTrace], layout).then(() => {
 
 
 
-  // Adjust the line coordinates based on the chart dimensions
+
   const line = document.querySelector('.line');
   line.setAttribute('x1', `${chartRect.left}px`);
   line.setAttribute('y1', `${chartRect.top + chartHeight}px`);
@@ -489,22 +611,50 @@ getData();
 /*
 
 ==============================================
-             Ternary Charty - END
+        SHOW THE DATA IN THE HTML FILE
 ==============================================
 
 */
 
-//SHOW THE DATA IN THE HTML FILE
+const checkboxState = [];
+
 function updateDataContainer(data) {
   const dataContainer = document.getElementById("dataContainer");
-  dataContainer.innerHTML = ""; // Clear previous content
+  dataContainer.innerHTML = ""; 
 
+  var EYR = 0
   for (let i = 0; i < data.length; i++) {
     const pointParagraph = document.createElement("p");
-    pointParagraph.textContent = `${data[i].nm_ponto}, R: ${data[i].r_ponto}, N: ${data[i].n_ponto}, F: ${data[i].f_ponto}`;
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    
+    // Set the checkbox's checked property based on the stored state or default to true
+    checkbox.checked = checkboxState[i] === undefined ? true : checkboxState[i];
+
+    // Add an event listener to update the state when the checkbox is clicked
+    checkbox.addEventListener("change", function() {
+      checkboxState[i] = checkbox.checked;
+    });
+
+    pointParagraph.appendChild(checkbox);
+
+    var R = data[i].r_ponto;
+    var N = data[i].n_ponto;
+    var F = data[i].f_ponto
+    var EYR = (1/F).toFixed(5);
+    var EIR = (F/EYR).toFixed(5);
+    var ELR = ((1 - R)/R).toFixed(5);
+    var SI = (EYR/ELR).toFixed(5);
+
+    const dataText = document.createElement("span");
+    dataText.textContent = ` ${data[i].nm_ponto}, R: ${R}, N: ${N}, F: ${F}, EYR: ${EYR} EIR: ${EIR}, ELR: ${ELR}, SI: ${SI}`;
+
+    pointParagraph.appendChild(dataText);
+
     dataContainer.appendChild(pointParagraph);
   }
 }
+
 updateDataContainer(data);
 
 /*

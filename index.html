@@ -95,15 +95,17 @@
       <h2>Sources</h2>
     </div>
     <div class="modal-body-lines-Sources"></div>
-    <button onclick="decreaseY()">Decrease Y</button>
-    <button onclick="increaseY()">Increase Y</button>
-    <button onclick="toggleLine()">Toggle Line N to F</button></br></br>
-    <button onclick="decreaseY()">Decrease Y</button>
-    <button onclick="increaseY()">Increase Y</button>
-    <button onclick="toggleLine()">Toggle Line R to N</button></br></br>
-    <button onclick="decreaseY()">Decrease Y</button>
-    <button onclick="increaseY()">Increase Y</button>
-    <button onclick="toggleLine()">Toggle Line F to R</button></br></br>
+    <button onclick="decreaseYNtoF()">Decrease</button>
+    <button onclick="increaseYNtoF()">Increase</button>
+    <button onclick="toggleLineNtoF()">Toggle Line N to F</button></br></br>
+
+    <button onclick="decreaseRtoN()">Decrease</button>
+    <button onclick="increaseRtoN()">Increase</button>
+    <button onclick="toggleLineRtoN()">Toggle Line R to N</button></br></br>
+
+    <button onclick="decreaseFtoR()">Decrease</button>
+    <button onclick="increaseFtoR()">Increase</button>
+    <button onclick="toggleLineFtoR()">Toggle Line F to R</button></br></br>
   </div>
   </div>
   
@@ -112,17 +114,28 @@
   <div id="modal-lines-Sustainable" class="hide">
     <div class="modal-header">
       <button id="close-modal-lines-Sustainable">X</button>
-      <h2>Lines</h2>
+      <h2>Sustainable</h2>
     </div>
     <div class="modal-body-lines-Sustainable"></div>
-
+    <p>LINHAS DE SI</p>
   </div>
   </div>
 
+  <!--Sensibility POP UP-->
+  <div id="fade-lines-Sensibility" class="hide"></div>
+  <div id="modal-lines-Sensibility" class="hide">
+    <div class="modal-header">
+      <button id="close-modal-lines-Sensibility">X</button>
+      <h2>Sensibility</h2>
+    </div>
+    <div class="modal-body-lines-Sensibility"></div>
+    <p>Sensibility</p>
+  </div>
+  </di
 
+-->
 
-
-  <!--
+<!--
   <div id="fade-apperance" class="hide"></div>
   <div id="modal-apperance" class="hide">
     <div class="modal-header">
@@ -157,13 +170,13 @@
     <div id="plot"></div>
     <svg class="overlay-figure">
       <!--style = "display: none;"-->
-      <line class="line" id="lineAnalisyNtoF" x1="35%" y1="86%" x2="60%" y2="86%" ></line>
-      <line class="line" id="lineAnalisyRtoN" x1="38.25%" y1="89%" x2="48.40%" y2="15%" ></line>
-      <line class="line" id="lineAnalisyFtoR" x1="56.7%" y1="89%" x2="46.5%" y2="15%" ></line>
+      <line class="line" id="lineAnalisyNtoF" x1="35%" y1="86%" x2="60%" y2="86%" style = "display: none;"></line>
+      <line class="line" id="lineAnalisyRtoN" x1="38.25%" y1="89%" x2="48.40%" y2="15%" style = "display: none;"></line>
+      <line class="line" id="lineAnalisyFtoR" x1="56.7%" y1="89%" x2="46.5%" y2="15%" style = "display: none;"></line>
     </svg>
   </div>
 
-  
+
   <div id="dataContainer"></div>
 
   <script src="script.js"></script>
