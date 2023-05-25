@@ -83,24 +83,35 @@ const toggleModalLinesSensibility = () => {
 APPERANCE PUP-UPS INSIDE DROP VERTICAL MENU
 
 */
-/*
-const openModalButtonApperance = document.querySelector("#Apperance");
-const modalApperance = document.querySelector("#modal-apperance");
-const fadeApperance = document.querySelector("#fade-apperance");
-const closeModalButtonApperance = document.querySelector("#close-modal-apperance");
+/*AXES POPUP*/ 
+const openModalButtonApperanceAxes = document.querySelector("#Axes-apperance");
+const modalApperanceAxes = document.querySelector("#modal-apperance-Axes");
+const fadeApperanceAxes = document.querySelector("#fade-apperance-Axes");
+const closeModalButtonApperanceAxes = document.querySelector("#close-modal-apperance-Axes");
 
-const toggleModalApperance = () => {
-  modalApperance.classList.toggle("hide");
-  fadeApperance.classList.toggle("hide");
+const toggleModalApperanceAxes = () => {
+  modalApperanceAxes.classList.toggle("hide");
+  fadeApperanceAxes.classList.toggle("hide");
 };
 
-[openModalButtonApperance, closeModalButtonApperance, fadeApperance].forEach((el) => {
-  el.addEventListener("click", () => toggleModalApperance());
+[openModalButtonApperanceAxes, closeModalButtonApperanceAxes, fadeApperanceAxes].forEach((el) => {
+  el.addEventListener("click", () => toggleModalApperanceAxes());
 });
-*/
 
+/*Resources POPUP*/
+const openModalButtonApperanceResources = document.querySelector("#Resources-apperance");
+const modalApperanceResources = document.querySelector("#modal-apperance-Resources");
+const fadeApperanceResources = document.querySelector("#fade-apperance-Resources");
+const closeModalButtonApperanceResources = document.querySelector("#close-modal-apperance-Resources");
 
+const toggleModalApperanceResources = () => {
+  modalApperanceResources.classList.toggle("hide");
+  fadeApperanceResources.classList.toggle("hide");
+};
 
+[openModalButtonApperanceResources, closeModalButtonApperanceResources, fadeApperanceResources].forEach((el) => {
+  el.addEventListener("click", () => toggleModalApperanceResources());
+});
 
 const openModalButtonPrintExport = document.querySelector("#PrintExport");
 const modalPrintExport = document.querySelector("#modal-printExport");
@@ -491,15 +502,8 @@ function updateChart(data) {
     F: point.f_ponto,
     label: point.nm_ponto,
   }));
- 
-/*
-const rawData = [
-  { R: 1.00E+00, N: 2.00E+00, F: 3.00E+00, label: "point 1" },
-  { R: 4.00E+00, N: 5.00E+00, F: 6.00E+00, label: "point 2" },
-  { R: 1.00E+00, N: 1.00E+00, F: 1.00E+00, label: "point 3" },
- 
-];
-*/
+
+
 function makeAxis(title, tickangle) {
   return {
     title: title,
@@ -705,4 +709,4 @@ function exportChart(format, filename) {
   }
 }
 
-}
+}//DO NOT DELETE THIS SHIT, i dont know why, but the program dont work if you do this

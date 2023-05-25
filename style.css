@@ -309,10 +309,11 @@ Popup's inside vertical menu Lines - END
 
 /*
 
-Popup Apperance
+INSIDE APPERANCE MENU
 
 */
-#fade-apperance {
+/*Axes popup*/
+#fade-apperance-Axes {
   position: fixed;
   top: 0;
   left: 0;
@@ -322,7 +323,7 @@ Popup Apperance
   z-index: 5;
 }
 
-#modal-apperance {
+#modal-apperance-Axes {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -335,24 +336,69 @@ Popup Apperance
   z-index: 10;
 }
 
-#fade-apperance,
-#modal-apperance {
+#fade-apperance-Axes,
+#modal-apperance-Axes {
   transition: 0.5s;
   opacity: 1;
   pointer-events: all;
 }
 
-#modal-body-apperance p {
+#modal-body-apperance-Axes p {
   margin-bottom: 1rem;
 }
 
-#modal-apperance.hide,
-#fade-apperance.hide {
+#modal-apperance-Axes.hide,
+#fade-apperance-Axes.hide {
   opacity: 0;
   pointer-events: none;
 }
 
-#modal-apperance.hide {
+#modal-apperance-Axes.hide {
+  top: 0;
+}
+
+/*Resources popup*/
+#fade-apperance-Resources {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-apperance-Resources {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-apperance-Resources,
+#modal-apperance-Resources {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-apperance-Resources p {
+  margin-bottom: 1rem;
+}
+
+#modal-apperance-Resources.hide,
+#fade-apperance-Resources.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-apperance-Resources.hide {
   top: 0;
 }
 

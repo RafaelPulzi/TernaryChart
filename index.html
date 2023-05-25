@@ -26,7 +26,8 @@
         Lines
       </button>
       <ul id="dropdown-menu-lines" class="dropdown-menu" style="display: none;">
-        <li><button id="Sources">Sources</button></li><!--CREATED-->
+        <li><button id="Sources">Sources</button></li>
+        <!--CREATED-->
         <li><button id="Sustainable">Sustainable</button></li>
         <li><button id="Sensibility">Sensibility</button></li>
         <li><button id="Simergy">Simergy</button></li>
@@ -41,11 +42,11 @@
         Apperance
       </button>
       <ul id="dropdown-menu-apperance" class="dropdown-menu" style="display: none;">
-        <li><button>Axes</button></li>
-        <li><button>Resources</button></li>
-        <li><button>Sustainability</button></li>
-        <li><button>Sensibility</button></li>
-        <li><button>Simergy</button></li>
+        <li><button id="Axes-apperance">Axes</button></li>
+        <li><button id="Resources-apperance">Resources</button></li>
+        <li><button id="Sustainability-apperance">Sustainability</button></li>
+        <li><button id="Sensibility-apperance">Sensibility</button></li>
+        <li><button id="Simergy-apperance">Simergy</button></li>
       </ul>
     </div>
 
@@ -57,7 +58,7 @@
   </div>
 
 
-
+  <!--Data menu popUp-->
   <div id="fade-dataInput" class="hide"></div>
   <div id="modal-dataInput" class="hide">
     <div class="modal-header">
@@ -81,12 +82,13 @@
       <label>F: </label>
       <input type="number" id="inputF">
       <p><br></p>
-  
-    <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
+
+      <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
     </form>
   </div>
   </div>
 
+<!--INSIDE DROPDOWN MENU LINES-->
   <!--Source POP UP-->
   <div id="fade-lines-Sources" class="hide"></div>
   <div id="modal-lines-Sources" class="hide">
@@ -108,7 +110,7 @@
     <button onclick="toggleLineFtoR()">Toggle Line F to R</button></br></br>
   </div>
   </div>
-  
+
   <!--Sustainable POP UP-->
   <div id="fade-lines-Sustainable" class="hide"></div>
   <div id="modal-lines-Sustainable" class="hide">
@@ -131,26 +133,41 @@
     <div class="modal-body-lines-Sensibility"></div>
     <p>Sensibility</p>
   </div>
-  </di
+  </div>
 
--->
 
-<!--
-  <div id="fade-apperance" class="hide"></div>
-  <div id="modal-apperance" class="hide">
+<!--INSIDE DROPDOWN MENU APPERANCE-->
+  <!--Axes POP UP-->
+  <div id="fade-apperance-Axes" class="hide"></div>
+  <div id="modal-apperance-Axes" class="hide">
     <div class="modal-header">
-      <button id="close-modal-apperance">X</button>
-      <h2>Apperance</h2>
+      <button id="close-modal-apperance-Axes">X</button>
+      <h2>Axes Apperance</h2>
     </div>
-    <div class="modal-body-apperance"></div>
+    <div class="modal-body-apperance-Axes"></div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
       enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
       ad alias!</p>
   </div>
   </div>
--->
+
+  <!--Resources POP UP-->
+  
+  <div id="fade-apperance-Resources" class="hide"></div>
+  <div id="modal-apperance-Resources" class="hide">
+    <div class="modal-header">
+      <button id="close-modal-apperance-Resources">X</button>
+      <h2>Resources Apperance</h2>
+    </div>
+    <div class="modal-body-apperance-Resources"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium accusamus aspernatur laboriosam
+      enim voluptatum dignissimos repudiandae! Incidunt culpa, dolore quaerat beatae hic quam ipsa saepe, inventore amet
+      ad alias!</p>
+  </div>
+  </div>
 
 
+<!--Print and Export PopUp-->
   <div id="fade-printExport" class="hide"></div>
   <div id="modal-printExport" class="hide">
     <div class="modal-header">
@@ -170,11 +187,12 @@
     <div id="plot"></div>
     <svg class="overlay-figure">
       <!--style = "display: none;"-->
-      <line class="line" id="lineAnalisyNtoF" x1="35%" y1="86%" x2="60%" y2="86%" style = "display: none;"></line>
-      <line class="line" id="lineAnalisyRtoN" x1="38.25%" y1="89%" x2="48.40%" y2="15%" style = "display: none;"></line>
-      <line class="line" id="lineAnalisyFtoR" x1="56.7%" y1="89%" x2="46.5%" y2="15%" style = "display: none;"></line>
+      <line class="line" id="lineAnalisyNtoF" x1="35%" y1="86%" x2="60%" y2="86%" style="display: none;"></line>
+      <line class="line" id="lineAnalisyRtoN" x1="38.25%" y1="89%" x2="48.40%" y2="15%" style="display: none;"></line>
+      <line class="line" id="lineAnalisyFtoR" x1="56.7%" y1="89%" x2="46.5%" y2="15%" style="display: none;"></line>
     </svg>
   </div>
+  <button onclick="getData()">UPDATE</button>
 
 
   <div id="dataContainer"></div>
