@@ -829,9 +829,72 @@ function updateChart(data) {
       //ALTER
       const alterButton = document.createElement("button");
       alterButton.textContent = "Alter";
-      alterButton.addEventListener("click", function () {
 
+      alterButton.addEventListener("click", function () {
+        const id = this.dataset.id; 
+
+       
+        const rInput = document.createElement("input");
+        rInput.type = "number";
+        rInput.placeholder = "R value";
+
+        const nInput = document.createElement("input");
+        nInput.type = "number";
+        nInput.placeholder = "N value";
+
+        const fInput = document.createElement("input");
+        fInput.type = "number";
+        fInput.placeholder = "F value";
+
+        
+        const submitButton = document.createElement("button");
+        submitButton.textContent = "Submit";
+
+       
+        submitButton.addEventListener("click", function () {
+          
+          const newRValue = rInput.value;
+          const newNValue = nInput.value;
+          const newFValue = fInput.value;
+
+        
+          fetch(`https://backternarychart-production.up.railway.app/points`, {
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              method: "PUT",
+              body: JSON.stringify({          
+                r_ponto: newRValue,
+                n_ponto: newNValue,
+                f_ponto: newFValue
+              })
+            })
+            .then(function (res) {
+              console.log(res);
+              alert("Alteration successful!");
+            })
+            .catch(function (error) {
+              console.log(error);
+              alert("An error occurred during alteration!");
+            });
+        });
+
+       
+        const inputContainer = document.createElement("div");
+
+       
+        inputContainer.appendChild(rInput);
+        inputContainer.appendChild(nInput);
+        inputContainer.appendChild(fInput);
+        inputContainer.appendChild(submitButton);
+
+        const parentElement = this.parentElement;
+
+        parentElement.insertBefore(inputContainer, parentElement.firstChild);
       });
+
+
 
       //DELETE
       const deleteButton = document.createElement("button");
@@ -855,16 +918,12 @@ function updateChart(data) {
             console.log(error);
             alert("ERRO: not possible to delete the DATA");
           });
-        // Add your code to handle the deletion of the point from MySQL
-        // You can access the point data using the "data[i]" object
-        // Perform the necessary logic to delete the point from the database
+
       });
 
       // Append the buttons to the point paragraph
       pointParagraph.appendChild(alterButton);
       pointParagraph.appendChild(deleteButton);
-
-
       dataContainer.appendChild(pointParagraph);
     }
   }

@@ -115,7 +115,7 @@ Popup Data Input
 
 #modal-dataInput {
   position: fixed;
-  left: 50%;
+  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
@@ -179,7 +179,7 @@ Popup's inside vertical menu Lines
 
 #modal-lines-Sources {
   position: fixed;
-  left: 50%;
+  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
@@ -224,7 +224,7 @@ Popup's inside vertical menu Lines
 
 #modal-lines-Sustainable {
   position: fixed;
-  left: 50%;
+  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
@@ -269,7 +269,7 @@ Popup's inside vertical menu Lines
 
 #modal-lines-Sensibility {
   position: fixed;
-  left: 50%;
+  left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
