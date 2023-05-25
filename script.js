@@ -238,7 +238,6 @@ function getData() {
 }
 
 
-
 getData();
 
 /*
@@ -606,7 +605,7 @@ Plotly.newPlot("plot", [trace, averageTrace], layout).then(() => {
 
 });
 
-getData();
+
 
 /*
 
