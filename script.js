@@ -1,9 +1,8 @@
-
 /*
 
 Pop-up's configuration
 
-*/ 
+*/
 const openModalButtonDataInput = document.querySelector("#DataInput");
 const modalDataInput = document.querySelector("#modal-dataInput");
 const fadeDataInput = document.querySelector("#fade-dataInput");
@@ -83,7 +82,7 @@ const toggleModalLinesSensibility = () => {
 APPERANCE PUP-UPS INSIDE DROP VERTICAL MENU
 
 */
-/*AXES POPUP*/ 
+/*AXES POPUP*/
 const openModalButtonApperanceAxes = document.querySelector("#Axes-apperance");
 const modalApperanceAxes = document.querySelector("#modal-apperance-Axes");
 const fadeApperanceAxes = document.querySelector("#fade-apperance-Axes");
@@ -135,7 +134,7 @@ const toggleModalPrintExport = () => {
 
 */
 
-function DisplayLinesMenu(){
+function DisplayLinesMenu() {
   var menu = document.getElementById("dropdown-menu-lines");
   if (menu.style.display === "none") {
     menu.style.display = "block";
@@ -144,7 +143,7 @@ function DisplayLinesMenu(){
   }
 }
 
-function DisplayApperanceMenu(){
+function DisplayApperanceMenu() {
   var menu = document.getElementById("dropdown-menu-apperance");
   if (menu.style.display === "none") {
     menu.style.display = "block";
@@ -162,7 +161,7 @@ function DisplayApperanceMenu(){
 */
 
 const dataForm = document.getElementById("dataForm");
-const NameSend = document.querySelector("#inputName");  
+const NameSend = document.querySelector("#inputName");
 const Rsend = document.querySelector("#inputR");
 const Nsend = document.querySelector("#inputN");
 const Fsend = document.querySelector("#inputF");
@@ -170,19 +169,19 @@ const Fsend = document.querySelector("#inputF");
 function submit(event) {
   event.preventDefault();
 
-  fetch("http://localhost:8080/points", {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({
-      nm_ponto: NameSend.value,
-      r_ponto: Rsend.value,
-      n_ponto: Nsend.value,
-      f_ponto: Fsend.value,
+  fetch("https://backternarychart-production.up.railway.app/points", {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        nm_ponto: NameSend.value,
+        r_ponto: Rsend.value,
+        n_ponto: Nsend.value,
+        f_ponto: Fsend.value,
+      })
     })
-  })
     .then(function (res) {
       console.log(res);
       // Handle the response here
@@ -223,13 +222,13 @@ document.getElementById("close-modal-dataInput").addEventListener('click', clean
 */
 
 function getData() {
-  fetch("http://localhost:8080/points", {
-    method: "GET",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
+  fetch("https://backternarychart-production.up.railway.app/points", {
+      method: "GET",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
     .then(function (response) {
       if (response.ok) {
         return response.json();
@@ -245,7 +244,7 @@ function getData() {
       console.log(error);
       // Handle errors here
     });
-    
+
 }
 
 
@@ -268,14 +267,14 @@ getData();
 */
 
 function updateData(id, newData) {
-  fetch(`http://localhost:8080/points/${id}`, {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "PUT",
-    body: JSON.stringify(newData)
-  })
+  fetch(`https://backternarychart-production.up.railway.app/points/${id}`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "PUT",
+      body: JSON.stringify(newData)
+    })
     .then(function (res) {
       console.log(res);
       // Handle the response here
@@ -303,13 +302,13 @@ function updateData(id, newData) {
 */
 
 function deleteData(id) {
-  fetch(`http://localhost:8080/points/${id}`, {
-    method: "DELETE",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
+  fetch(`https://backternarychart-production.up.railway.app/points/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
     .then(function (res) {
       console.log(res);
       // Handle the response here
@@ -337,11 +336,12 @@ function deleteData(id) {
 */
 let isLineVisible = true;
 const lineElementNtoF = document.querySelector('#lineAnalisyNtoF');
+
 function toggleLineNtoF() {
   if (isLineVisible) {
-      lineElementNtoF.style.display = 'none'; // Hide the line
+    lineElementNtoF.style.display = 'none'; // Hide the line
   } else {
-      lineElementNtoF.style.display = 'block'; // Show the line
+    lineElementNtoF.style.display = 'block'; // Show the line
   }
   isLineVisible = !isLineVisible;
 }
@@ -374,11 +374,12 @@ function increaseYNtoF() {
 
 
 const lineElementRtoN = document.querySelector('#lineAnalisyRtoN');
+
 function toggleLineRtoN() {
   if (isLineVisible) {
-      lineElementRtoN.style.display = 'none'; // Hide the line
+    lineElementRtoN.style.display = 'none'; // Hide the line
   } else {
-      lineElementRtoN.style.display = 'block'; // Show the line
+    lineElementRtoN.style.display = 'block'; // Show the line
   }
   isLineVisible = !isLineVisible;
 }
@@ -420,18 +421,19 @@ function increaseRtoN() {
   x1RtoN += 1;
   x2RtoN += 1;
   // TOP limit
-  
+
 
   updateLineRtoN();
 }
 
 
 const lineElementFtoR = document.querySelector('#lineAnalisyFtoR');
+
 function toggleLineFtoR() {
   if (isLineVisible) {
-      lineElementFtoR.style.display = 'none';
+    lineElementFtoR.style.display = 'none';
   } else {
-      lineElementFtoR.style.display = 'block'; 
+    lineElementFtoR.style.display = 'block';
   }
   isLineVisible = !isLineVisible;
 }
@@ -474,7 +476,7 @@ function increaseFtoR() {
   if (y2FtoR > 82) y2FtoR = 82;
   if (x1FtoR > 82) x1FtoR = 82;
   if (x2FtoR > 82) x2FtoR = 82;    
-  */   
+  */
   updateLineFtoR();
 }
 
@@ -504,209 +506,422 @@ function updateChart(data) {
   }));
 
 
-function makeAxis(title, tickangle) {
-  return {
-    title: title,
-    titlefont: { size: 20 },
-    tickfont: { size: 15 },
-    tickcolor: "rgba(0,0,0,0)",
-    ticklen: 5,
-    showline: true,
-    showgrid: true,
-    tickvals: [], // This will remove all tick labels, and also the grid...
+  function makeAxis(title, tickangle) {
+    return {
+      title: title,
+      titlefont: {
+        size: 20
+      },
+      tickfont: {
+        size: 15
+      },
+      tickcolor: "rgba(0,0,0,0)",
+      ticklen: 5,
+      showline: true,
+      showgrid: true,
+      tickvals: [], // This will remove all tick labels, and also the grid...
+    };
+  }
+
+
+
+  const trace = {
+    type: "scatterternary",
+    mode: "markers",
+
+    a: updatedData.map((x) => x.R),
+    b: updatedData.map((x) => x.N),
+    c: updatedData.map((x) => x.F),
+    text: updatedData.map((x) => x.label),
+    marker: {
+      symbol: 0,
+      color: "#DB7365",
+      size: 7,
+      line: {
+        width: 2
+      },
+    },
+    name: "Points"
   };
-}
 
 
+  /*===========SENSIBILITY LINES===========*/
+  const checkboxTrace0 = document.getElementById('trace0Checkbox');
+  const checkboxTrace1 = document.getElementById('trace1Checkbox');
+  const checkboxTrace2 = document.getElementById('trace2Checkbox');
 
-const trace = {
-  type: "scatterternary",
-  mode: "markers",
-  
-  a: updatedData.map((x) => x.R),
-  b: updatedData.map((x) => x.N),
-  c: updatedData.map((x) => x.F),
-  text: updatedData.map((x) => x.label),
-  marker: {
-    symbol: 0,
-    color: "#DB7365",
-    size: 7,
-    line: { width: 2 },
-  },
-  name: "Points"
-};
+  var boxUnCheked0 = false;
+  var boxUnCheked1 = false;
+  var boxUnCheked2 = false;
 
+  function checkboxHandler() {
+    boxUnCheked0 = checkboxTrace0.checked;
+    boxUnCheked1 = checkboxTrace1.checked;
+    boxUnCheked2 = checkboxTrace2.checked;
 
-/*===========SIMERGY POINT===========*/ 
+    updateTraceVisibility();
+  }
 
-const sumPoints = updatedData.reduce(
-  (acc, point) => {
-    acc.R += point.R;
-    acc.N += point.N;
-    acc.F += point.F;
-    return acc;
-  },
-  { R: 0, N: 0, F: 0 }
-);
+  function updateTraceVisibility() {
+    sensibilityLineR.visible = boxUnCheked0;
+    sensibilityLineN.visible = boxUnCheked1;
+    sensibilityLineF.visible = boxUnCheked2;
 
-const averagePoint = {
-  R: sumPoints.R / updatedData.length,
-  N: sumPoints.N / updatedData.length,
-  F: sumPoints.F / updatedData.length,
-};
+    Plotly.redraw('plot');
+  }
 
-const averageTrace = {
-  type: "scatterternary",
-  mode: "markers",
-  a: [averagePoint.R],
-  b: [averagePoint.N],
-  c: [averagePoint.F],
-  marker: {
-    symbol: "circle",
-    size: 10,
-    color: "green",
-    line: { width: 1, color: "black" },
-  },
-  line: { color: "green", width: 2 },
-  connectgaps: true,
-  name: "Simergy Point"
-};
-/*===========SIMERGY POINT===========*/ 
- 
-const layout = {
-  ternary: {
-    aaxis: makeAxis("R", 0),
-    baxis: makeAxis("<br>N", 45),
-    caxis: makeAxis("<br>F", -45),
-  },
-  annotations: [
+  checkboxTrace0.addEventListener('click', checkboxHandler);
+  checkboxTrace1.addEventListener('click', checkboxHandler);
+  checkboxTrace2.addEventListener('click', checkboxHandler);
+
+  pointAnalsy = []
+
+  for (let i = 0; i < data.length; i++) {
+    var R = data[i].r_ponto;
+    var N = data[i].n_ponto;
+    var F = data[i].f_ponto;
+  }
+
+  const sensibilityLineRDATA = [{
+      A: 1,
+      B: 0,
+      C: 0
+    },
     {
+      A: 0.3,
+      B: 0.4,
+      C: 0.3
+    },
+    {
+      A: 0,
+      B: 0.4,
+      C: 0.3
+    },
+  ];
+
+  const sensibilityLineR = {
+    type: 'scatterternary',
+    mode: 'lines+markers',
+    a: sensibilityLineRDATA.map(point => point.A),
+    b: sensibilityLineRDATA.map(point => point.B),
+    c: sensibilityLineRDATA.map(point => point.C),
+    marker: {
+      symbol: 'circle',
+      size: 10,
+      color: 'blue',
+      line: {
+        width: 1,
+        color: 'black'
+      }
+    },
+    line: {
+      color: 'blue',
+      width: 2
+    },
+    visible: false
+  };
+
+  const sensibilityLineNDATA = [{
+      A: 0,
+      B: 1,
+      C: 0
+    },
+    {
+      A: 0.3,
+      B: 0.4,
+      C: 0.3
+    },
+    {
+      A: 0.3,
+      B: 0,
+      C: 0.3
+    },
+  ];
+
+  const sensibilityLineN = {
+    type: 'scatterternary',
+    mode: 'lines+markers',
+    a: sensibilityLineNDATA.map(point => point.A),
+    b: sensibilityLineNDATA.map(point => point.B),
+    c: sensibilityLineNDATA.map(point => point.C),
+    marker: {
+      symbol: 'circle',
+      size: 10,
+      color: 'blue',
+      line: {
+        width: 1,
+        color: 'black'
+      }
+    },
+    line: {
+      color: 'blue',
+      width: 2
+    },
+    visible: false
+  };
+
+  const sensibilityLineFDATA = [{
+      A: 0,
+      B: 0,
+      C: 1
+    },
+    {
+      A: 0.3,
+      B: 0.4,
+      C: 0.3
+    },
+    {
+      A: 0.3,
+      B: 0.4,
+      C: 0
+    },
+  ];
+
+
+  const sensibilityLineF = {
+    type: 'scatterternary',
+    mode: 'lines+markers',
+    a: sensibilityLineFDATA.map(point => point.A),
+    b: sensibilityLineFDATA.map(point => point.B),
+    c: sensibilityLineFDATA.map(point => point.C),
+    marker: {
+      symbol: 'circle',
+      size: 10,
+      color: 'blue',
+      line: {
+        width: 1,
+        color: 'black'
+      }
+    },
+    line: {
+      color: 'blue',
+      width: 2
+    },
+    visible: false
+  };
+
+
+  /*===========SIMERGY POINT===========*/
+
+  const sumPoints = updatedData.reduce(
+    (acc, point) => {
+      acc.R += point.R;
+      acc.N += point.N;
+      acc.F += point.F;
+      return acc;
+    }, {
+      R: 0,
+      N: 0,
+      F: 0
+    }
+  );
+
+  const averagePoint = {
+    R: sumPoints.R / updatedData.length,
+    N: sumPoints.N / updatedData.length,
+    F: sumPoints.F / updatedData.length,
+  };
+
+  const averageTrace = {
+    type: "scatterternary",
+    mode: "markers",
+    a: [averagePoint.R],
+    b: [averagePoint.N],
+    c: [averagePoint.F],
+    marker: {
+      symbol: "circle",
+      size: 10,
+      color: "green",
+      line: {
+        width: 1,
+        color: "black"
+      },
+    },
+    line: {
+      color: "green",
+      width: 2
+    },
+    connectgaps: true,
+    name: "Simergy Point"
+  };
+  /*======================*/
+
+  const layout = {
+    ternary: {
+      aaxis: makeAxis("R", 0),
+      baxis: makeAxis("<br>N", 45),
+      caxis: makeAxis("<br>F", -45),
+    },
+    annotations: [{
       showarrow: false,
       text: "Ternary Chart Simergy",
       x: 0.5,
       y: 1.3,
-      font: { size: 15 },
-    },
-  ],
-};
+      font: {
+        size: 15
+      },
+    }, ],
+  };
 
-Plotly.newPlot("plot", [trace, averageTrace], layout).then(() => {
-  // Get the ternary chart dimensions
-  const chart = document.querySelector('.scatterternary');
-  const chartRect = chart.getBoundingClientRect();
-  const chartWidth = chartRect.width;
-  const chartHeight = chartRect.height;
-
-
-
-
-  const line = document.querySelector('.line');
-  line.setAttribute('x1', `${chartRect.left}px`);
-  line.setAttribute('y1', `${chartRect.top + chartHeight}px`);
-  line.setAttribute('x2', `${chartRect.left + chartWidth}px`);
-  line.setAttribute('y2', `${chartRect.top}px`);
-
-
-});
+  Plotly.newPlot("plot", [trace, averageTrace, sensibilityLineR, sensibilityLineN, sensibilityLineF], layout).then(() => {
+    // Get the ternary chart dimensions
+    const chart = document.querySelector('.scatterternary');
+    const chartRect = chart.getBoundingClientRect();
+    const chartWidth = chartRect.width;
+    const chartHeight = chartRect.height;
 
 
 
-/*
 
-==============================================
-        SHOW THE DATA IN THE HTML FILE
-==============================================
-
-*/
-
-const checkboxState = [];
-
-function updateDataContainer(data) {
-  const dataContainer = document.getElementById("dataContainer");
-  dataContainer.innerHTML = ""; 
-
-  var EYR = 0
-  for (let i = 0; i < data.length; i++) {
-    const pointParagraph = document.createElement("p");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    
-    // Set the checkbox's checked property based on the stored state or default to true
-    checkbox.checked = checkboxState[i] === undefined ? true : checkboxState[i];
-
-    // Add an event listener to update the state when the checkbox is clicked
-    checkbox.addEventListener("change", function() {
-      checkboxState[i] = checkbox.checked;
-    });
-
-    pointParagraph.appendChild(checkbox);
-
-    var R = data[i].r_ponto;
-    var N = data[i].n_ponto;
-    var F = data[i].f_ponto
-    var EYR = (1/F).toFixed(5);
-    var EIR = (F/EYR).toFixed(5);
-    var ELR = ((1 - R)/R).toFixed(5);
-    var SI = (EYR/ELR).toFixed(5);
-
-    const dataText = document.createElement("span");
-    dataText.textContent = ` ${data[i].nm_ponto}, R: ${R}, N: ${N}, F: ${F}, EYR: ${EYR} EIR: ${EIR}, ELR: ${ELR}, SI: ${SI}`;
-
-    pointParagraph.appendChild(dataText);
-
-    dataContainer.appendChild(pointParagraph);
-  }
-}
-
-updateDataContainer(data);
-
-/*
-==============================================
-     EXPORT IMAGES IN DIFFERENT FORMATS
-==============================================
-*/
+    const line = document.querySelector('.line');
+    line.setAttribute('x1', `${chartRect.left}px`);
+    line.setAttribute('y1', `${chartRect.top + chartHeight}px`);
+    line.setAttribute('x2', `${chartRect.left + chartWidth}px`);
+    line.setAttribute('y2', `${chartRect.top}px`);
 
 
-document.getElementById('exportPNG').addEventListener('click', function() {
-  exportChart('png', 'chart.png');
-});
+  });
 
-document.getElementById('exportJPEG').addEventListener('click', function() {
-  exportChart('jpeg', 'chart.jpeg');
-});
 
-document.getElementById('exportSVG').addEventListener('click', function() {
-  exportChart('svg', 'chart.svg');
-});
 
-function exportChart(format, filename) {
-  if (format === 'pdf') {
-    const element = document.getElementById('plot');
-    domtoimage.toPng(element)
-      .then(function (dataUrl) {
-        var pdf = new jsPDF();
-        var img = new Image();
-        img.src = dataUrl;
-        img.onload = function() {
-          var canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0);
-          var imageData = canvas.toDataURL('image/jpeg');
-          pdf.addImage(imageData, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-          pdf.save(filename);
-        };
+  /*
+
+  ==============================================
+          SHOW THE DATA IN THE HTML FILE
+  ==============================================
+
+  */
+
+  const checkboxState = [];
+
+  function updateDataContainer(data) {
+    const dataContainer = document.getElementById("dataContainer");
+    dataContainer.innerHTML = "";
+
+    for (let i = 0; i < data.length; i++) {
+      const pointParagraph = document.createElement("p");
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      // Set the checkbox's checked property based on the stored state or default to true
+      checkbox.checked = checkboxState[i] === undefined ? true : checkboxState[i];
+
+      // Add an event listener to update the state when the checkbox is clicked
+      checkbox.addEventListener("change", function () {
+        checkboxState[i] = checkbox.checked;
       });
-  } else {
-    Plotly.toImage('plot', { format: format, width: 800, height: 600 })
-      .then(function (url) {
-        var link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        link.click();
-      });
-  }
-}
 
-}//DO NOT DELETE THIS SHIT, i dont know why, but the program dont work if you do this
+      pointParagraph.appendChild(checkbox);
+
+      var R = data[i].r_ponto;
+      var N = data[i].n_ponto;
+      var F = data[i].f_ponto;
+      var EYR = (1 / F).toFixed(5);
+      var EIR = (F / EYR).toFixed(5);
+      var ELR = ((1 - R) / R).toFixed(5);
+      var SI = (EYR / ELR).toFixed(5);
+
+      const dataText = document.createElement("span");
+      dataText.textContent = ` ${data[i].nm_ponto}, R: ${R}, N: ${N}, F: ${F}, EYR: ${EYR} EIR: ${EIR}, ELR: ${ELR}, SI: ${SI}`;
+
+      pointParagraph.appendChild(dataText);
+
+      //ALTER
+      const alterButton = document.createElement("button");
+      alterButton.textContent = "Alter";
+      alterButton.addEventListener("click", function () {
+
+      });
+
+      //DELETE
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", function () {
+        const id = data[i].cd_ponto;
+        fetch(`https://backternarychart-production.up.railway.app/points/${id}`, {
+            method: "DELETE",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(function (res) {
+            console.log(res);
+            alert("Data deleted if exit");
+            data.splice(i, 1);
+            getData();
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert("ERRO: not possible to delete the DATA");
+          });
+        // Add your code to handle the deletion of the point from MySQL
+        // You can access the point data using the "data[i]" object
+        // Perform the necessary logic to delete the point from the database
+      });
+
+      // Append the buttons to the point paragraph
+      pointParagraph.appendChild(alterButton);
+      pointParagraph.appendChild(deleteButton);
+
+
+      dataContainer.appendChild(pointParagraph);
+    }
+  }
+
+  updateDataContainer(data);
+
+  /*
+  ==============================================
+       EXPORT IMAGES IN DIFFERENT FORMATS
+  ==============================================
+  */
+
+
+  document.getElementById('exportPNG').addEventListener('click', function () {
+    exportChart('png', 'chart.png');
+  });
+
+  document.getElementById('exportJPEG').addEventListener('click', function () {
+    exportChart('jpeg', 'chart.jpeg');
+  });
+
+  document.getElementById('exportSVG').addEventListener('click', function () {
+    exportChart('svg', 'chart.svg');
+  });
+
+  function exportChart(format, filename) {
+    if (format === 'pdf') {
+      const element = document.getElementById('plot');
+      domtoimage.toPng(element)
+        .then(function (dataUrl) {
+          var pdf = new jsPDF();
+          var img = new Image();
+          img.src = dataUrl;
+          img.onload = function () {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            var imageData = canvas.toDataURL('image/jpeg');
+            pdf.addImage(imageData, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+            pdf.save(filename);
+          };
+        });
+    } else {
+      Plotly.toImage('plot', {
+          format: format,
+          width: 800,
+          height: 600
+        })
+        .then(function (url) {
+          var link = document.createElement('a');
+          link.href = url;
+          link.download = filename;
+          link.click();
+        });
+    }
+  }
+
+} //DO NOT DELETE THIS SHIT, i dont know why, but the program dont work if you do this
