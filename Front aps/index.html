@@ -38,151 +38,172 @@
       <p>F=321</p>
     </div>
     <nav>
-    <ul class="pontos">
-      <li><input type="checkbox"> Ponto 1</li>
-      <li><input type="checkbox"> Ponto 2</li>
-      <li><input type="checkbox"> Ponto 3</li>
-      <li><input type="checkbox"> Ponto 4</li>
-      <li><input type="checkbox"> Ponto 5</li>
-      <li><input type="checkbox"> Ponto 6</li>
-      <li><input type="checkbox"> Ponto 7</li>
-      <li><input type="checkbox"> Ponto 8</li>
-      <li><input type="checkbox"> Ponto 9</li>
-      <li><input type="checkbox"> Ponto 10</li>
-      <li><input type="checkbox"> Ponto 11</li>
-      <li><input type="checkbox"> Ponto 12</li>
-      <li><input type="checkbox"> Ponto 13</li>
-      <li><input type="checkbox"> Ponto 14</li>
-      <li><input type="checkbox"> Ponto 15</li>
-      <li><input type="checkbox"> Ponto 16</li>
-      <li><input type="checkbox"> Ponto 17</li>
-      <li><input type="checkbox"> Ponto 18</li>
-      <li><input type="checkbox"> Ponto 19</li>
-      <li><input type="checkbox"> Ponto 20</li>
-    </ul>
+      <ul class="pontos">
+        <li><input type="checkbox"> Ponto 1</li>
+        <li><input type="checkbox"> Ponto 2</li>
+        <li><input type="checkbox"> Ponto 3</li>
+        <li><input type="checkbox"> Ponto 4</li>
+        <li><input type="checkbox"> Ponto 5</li>
+        <li><input type="checkbox"> Ponto 6</li>
+        <li><input type="checkbox"> Ponto 7</li>
+        <li><input type="checkbox"> Ponto 8</li>
+        <li><input type="checkbox"> Ponto 9</li>
+        <li><input type="checkbox"> Ponto 10</li>
+        <li><input type="checkbox"> Ponto 11</li>
+        <li><input type="checkbox"> Ponto 12</li>
+        <li><input type="checkbox"> Ponto 13</li>
+        <li><input type="checkbox"> Ponto 14</li>
+        <li><input type="checkbox"> Ponto 15</li>
+        <li><input type="checkbox"> Ponto 16</li>
+        <li><input type="checkbox"> Ponto 17</li>
+        <li><input type="checkbox"> Ponto 18</li>
+        <li><input type="checkbox"> Ponto 19</li>
+        <li><input type="checkbox"> Ponto 20</li>
+      </ul>
     </nav>
   </div>
   <div class="content">
     <div class="buttons">
 
-        <!--Botao de Data Input-->
-
-        <div>
-          <button alt="DataInput" id="DataInput" class="bt">
-            Data Input
-          </button>
-        </div>
-
-        <!--Source POP UP Data Input-->
-
-        <div id="fade-dataInput" class="hide"></div>
-        <div id="modal-dataInput" class="hide">
-          <div class="modal-header">
-            <button id="close-modal-dataInput">X</button>
-            <h2>Data Input</h2>
-          </div>
-          <div id="modal-body-dataInput"></div>
-          <form id="dataForm" action="">
-            <label>Name: </label>
-            <input id="inputName">
-            <p><br></p>
-
-            <label>R: </label>
-            <input type="number" id="inputR">
-            <p><br></p>
-
-            <label>N: </label>
-            <input type="number" id="inputN">
-            <p><br></p>
-
-            <label>F: </label>
-            <input type="number" id="inputF">
-            <p><br></p>
-          </form>
-          <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
-          </form>
-        </div>
-
-
-        <!--Botao de Lines-->
-
-        <div>
-          <button alt="Lines" onclick="DisplayLinesMenu()" id="Lines" class="bt">
-            Lines
-          </button>
-          <ul id="dropdown-menu-lines" class="dropdown-menu" style="display: none;">
-            <li><button id="Sources">Sources</button></li>
-            <li><button id="Sustainable">Sustainable</button></li> <!--CREATED-->
-            <li><button id="Sensibility">Sensibility</button></li>
-            <li><button id="Simergy">Simergy</button></li>
-          </ul>
-        </div>
-
-        <!--Source POP UP Lines-->
-        <div id="fade-lines-Sources" class="hide"></div>
-        <div id="modal-lines-Sources" class="hide">
-          <div class="modal-header">
-            <button id="close-modal-lines-Sources">X</button>
-            <h2>Source</h2>
-          </div>
-          <div class="modal-body-lines-Sources"></div>
-            <button onclick="decreaseY()">Decrease Y</button>
-            <button onclick="increaseY()">Increase Y</button>
-            <button onclick="toggleLine()">Toggle Line N to F</button></br></br>
-            <button onclick="decreaseY()">Decrease Y</button>
-            <button onclick="increaseY()">Increase Y</button>
-            <button onclick="toggleLine()">Toggle Line R to N</button></br></br>
-            <button onclick="decreaseY()">Decrease Y</button>
-           <button onclick="increaseY()">Increase Y</button>
-           <button onclick="toggleLine()">Toggle Line F to R</button></br></br>
-        </div>
-    
-
-      <!--Botao de Appearance-->
-      <!--Drop vertical menu-->
+      <!--Botao de Data Input-->
 
       <div>
-        <button alt="Apperance" onclick="DisplayApperanceMenu()" id="Apperance" class="bt">
-          Apperance
+        <button alt="DataInput" id="DataInput" class="bt">
+          Data Input
         </button>
-        <ul id="dropdown-menu-apperance" class="dropdown-menu" style="display: none;">
-          <li><button>Axes</button></li>
-          <li><button>Resources</button></li>
-          <li><button>Sustainability</button></li>
-          <li><button>Sensibility</button></li>
-          <li><button>Simergy</button></li>
+      </div>
+
+      <!--Source POP UP Data Input-->
+
+      <div id="fade-dataInput" class="hide"></div>
+      <div id="modal-dataInput" class="hide">
+        <div class="modal-header">
+          <button id="close-modal-dataInput">X</button>
+          <h2>Data Input</h2>
+        </div>
+        <div id="modal-body-dataInput"></div>
+        <form id="dataForm" action="">
+          <label>Name: </label>
+          <input id="inputName">
+          <p><br></p>
+
+          <label>R: </label>
+          <input type="number" id="inputR">
+          <p><br></p>
+
+          <label>N: </label>
+          <input type="number" id="inputN">
+          <p><br></p>
+
+          <label>F: </label>
+          <input type="number" id="inputF">
+          <p><br></p>
+        </form>
+        <button class="popup-addPoint" id="insidePopupData">Adicionar Ponto</button>
+        </form>
+      </div>
+
+
+      <!--Botao de Lines-->
+
+      <div>
+        <button alt="Lines" onclick="DisplayLinesMenu()" id="Lines" class="bt">
+          Lines
+        </button>
+        <ul id="dropdown-menu-lines" class="dropdown-menu" style="display: none;">
+          <li><button id="Sources">Sources</button></li>
+          <li><button id="Sustainable">Sustainable</button></li>
+          <li><button id="Sensibility">Sensibility</button></li>
+          <li><button id="Simergy">Simergy</button></li>
         </ul>
       </div>
 
-      <div>
-        <button alt="Print and Export" id="PrintExport" class="bt">
-          Print and Export
-        </button>
+      <!--Source POP UP Lines-->
+      <div id="fade-lines-Sources" class="hide"></div>
+      <div id="modal-lines-Sources" class="hide">
+        <div class="modal-header">
+          <button id="close-modal-lines-Sources">X</button>
+          <h2>Source</h2>
+        </div>
+        <div class="modal-body-lines-Sources"></div>
+        <button onclick="decreaseYNtoF()">Decrease Y</button>
+        <button onclick="increaseYNtoF()">Increase Y</button>
+        <button onclick="toggleLineNtoF()">Toggle Line N to F</button></br></br>
+        <button onclick="decreaseRtoN()">Decrease Y</button>
+        <button onclick="increaseRtoN()">Increase Y</button>
+        <button onclick="toggleLineRtoN()">Toggle Line R to N</button></br></br>
+        <button onclick="decreaseFtoR()">Decrease Y</button>
+        <button onclick="increaseFtoR()">Increase Y</button>
+        <button onclick="toggleLineFtoR()">Toggle Line F to R</button></br></br>
       </div>
 
-    </div> <!--end div buttons--> 
-      <div class="chart-container">
-        <div id="plot"></div>
-        <svg class="overlay-figure">
-
-        </svg>
+      <!--Sensibility POP UP-->
+      <!--
+      <div id="fade-lines-Sensibility" class="hide"></div>
+      <div id="modal-lines-Sensibility" class="hide">
+        <div class="modal-header">
+          <button id="close-modal-lines-Sensibility">X</button>
+          <h2>Sensibility</h2>
+        </div>
+        <div class="modal-body-lines-Sensibility"></div>
+        <label><input type="checkbox" id="trace0Checkbox">R</label>
+        <label><input type="checkbox" id="trace1Checkbox">N</label>
+        <label><input type="checkbox" id="trace2Checkbox">F</label>
       </div>
-      </div>
+    </div>
+  -->
 
-    <!--Print Export POP UP-->
 
-    <div id="fade-printExport" class="hide"></div>
-    <div id="modal-printExport" class="hide">
+    <!--Botao de Appearance-->
+    <!--Drop vertical menu-->
+
+    <div>
+      <button alt="Apperance" onclick="DisplayApperanceMenu()" id="Apperance" class="bt">
+        Apperance
+      </button>
+      <ul id="dropdown-menu-apperance" class="dropdown-menu" style="display: none;">
+        <li><button>Axes</button></li>
+        <li><button>Resources</button></li>
+        <li><button>Sustainability</button></li>
+        <li><button>Sensibility</button></li>
+        <li><button>Simergy</button></li>
+      </ul>
+    </div>
+
+    <div>
+      <button alt="Print and Export" id="PrintExport" class="bt">
+        Print and Export
+      </button>
+    </div>
+
+  </div>
+  <!--end div buttons-->
+  <div class="chart-container">
+    <div id="plot"></div>
+    <svg class="overlay-figure">
+      <!--style = "display: none;"-->
+      <line class="line" id="lineAnalisyNtoF" x1="35%" y1="86%" x2="60%" y2="86%" style="display: none;"></line>
+      <line class="line" id="lineAnalisyRtoN" x1="38.25%" y1="89%" x2="48.40%" y2="15%" style="display: none;"></line>
+      <line class="line" id="lineAnalisyFtoR" x1="56.7%" y1="89%" x2="46.5%" y2="15%" style="display: none;"></line>
+    </svg>
+  </div>
+  </div>
+
+  <!--Print Export POP UP-->
+
+  <div id="fade-printExport" class="hide"></div>
+  <div id="modal-printExport" class="hide">
     <div class="modal-header">
       <button id="close-modal-printExport">X</button>
       <h2>Print and Export</h2>
     </div>
     <div class="modal-body-printExport">
-    <button id="exportPNG">Export as PNG</button>
-    <button id="exportJPEG">Export as JPEG</button>
-    <button id="exportSVG">Export as SVG</button>
+      <button id="exportPNG">Export as PNG</button>
+      <button id="exportJPEG">Export as JPEG</button>
+      <button id="exportSVG">Export as SVG</button>
+    </div>
   </div>
-  </div><!--End content-->
+  <!--End content-->
 
 
   <!--Sustainable POP UP-->
@@ -196,7 +217,7 @@
   </div>
   </div>
 
-<div id="dataContainer"></div>
+  <div id="dataContainer"></div>
 
   <footer>
     <p>&copy; 2023 São Paulo - UNIP</p>
