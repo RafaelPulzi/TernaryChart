@@ -1,0 +1,444 @@
+
+body {
+    margin: 0, black;
+    padding: 0;
+    background-color:  #B0C4DE ;
+  }
+  .titulo{
+    text-size-adjust: 40%;
+
+  }
+  header {
+    background-color: #c8d9e0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 75px;
+     
+  }
+
+  img.logo{
+    max-width:100px;
+    max-height:75px;
+    width: auto;
+    height: auto;
+    object-fit: fill;
+  }
+  
+  .Devs {
+    text-align: right;
+    font-weight: bold;
+    font: size 5px; 
+    margin: 2px;
+    line-height:10px;
+  }
+  
+  .sidebar {
+    width: 17%;
+    color: #000;
+    background-color: #c8d9e063;
+    margin: 5px, black;
+    padding-right: 20px;
+    height: 100%;
+    display: inline;
+    float: left;
+    border-left: 1px solid #000;
+  }
+
+nav ul{
+  height:17% ; 
+  width: 100%;
+}
+
+nav ul{
+  overflow: hidden;
+  overflow: scroll;
+}
+
+  
+  .pontos {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .RNF{
+    text-align: left;
+    margin-left: 10%;
+  }
+  
+  .pontos li {
+    color: #000;
+    text-align: center;
+    margin: 5px, black;
+  }
+  
+  .content {
+    margin-left: 20%;
+    padding: 20px;
+  }
+  
+  .content button {
+    background-color: #89b9d0;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    flex-grow: 5;
+    margin: 7px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+  
+  .buttons button {
+    background-color: #89b9d0;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    flex-grow: 5;
+    margin: 7px;
+  }
+  #dataContainer {
+    margin-top: 20px;
+  }
+  .clickable {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+  .hidden {
+    display: none;
+  }
+
+  /* start - conf Popup Data Input  */
+
+
+#fade-dataInput {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-dataInput {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-dataInput,
+#modal-dataInput {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-header {
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+#modal-body-dataInput p {
+  margin-bottom: 1rem;
+}
+
+#modal-dataInput.hide,
+#fade-dataInput.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-dataInput.hide {
+  top: 0;
+
+}
+
+/* End - conf Popup Data Input  */
+  
+/*Start - conf Popup's inside vertical menu Lines */
+
+/*Sources popup style*/
+#fade-lines-Sources {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-lines-Sources {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-lines-Sources,
+#modal-lines-Sources {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-lines-Sources p {
+  margin-bottom: 1rem;
+}
+
+#modal-lines-Sources.hide,
+#fade-lines-Sources.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-lines-Sources.hide {
+  top: 0;
+}
+
+/*Sustainable popup style*/
+
+#fade-lines-Sustainable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-lines-Sustainable {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-lines-Sustainable,
+#modal-lines-Sustainable {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-lines-Sustainable p {
+  margin-bottom: 1rem;
+}
+
+#modal-lines-Sustainable.hide,
+#fade-lines-Sustainable.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-lines-Sustainable.hide {
+  top: 0;
+}
+
+/*End - conf Popup's inside vertical menu Lines */
+
+
+/* Start - conf Popup Apperance */
+#fade-apperance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-apperance {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-apperance,
+#modal-apperance {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-apperance p {
+  margin-bottom: 1rem;
+}
+
+#modal-apperance.hide,
+#fade-apperance.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-apperance.hide {
+  top: 0;
+}
+
+/* End - conf Popup Apperance */
+
+
+/*Start - conf Popup PrintExport */
+
+.modal-body-printExport button{
+  background-color: #89b9d0;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  flex-grow: 5;
+  margin: 7px;
+}
+
+.modal-header button{
+  background-color: #89b9d0;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  flex-grow: 5;
+  margin: 7px;
+}
+
+#fade-printExport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-printExport {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+#fade-apperanceprintExport,
+#modal-printExport {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal-body-printExport p {
+  margin-bottom: 1rem;
+}
+
+#modal-printExport.hide,
+#fade-printExport.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-printExport.hide {
+  top: 0;
+}
+
+/*End - conf Popup PrintExport */
+
+/* Drop down menu style */
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1;
+}
+
+.dropdown-menu {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/*PLOT SOURCE ANALISY LINE*/
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: none;
+  margin-bottom: 20px;
+  }
+
+.overlay-figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.overlay-figure .line {
+  stroke: red;
+  stroke-width: 2;
+  fill: none;
+}
+
+  footer {
+    background-color: #c8d9e0;
+    padding: 7px;
+    text-align: center;
+    clear: both;
+    color: #000;
+  }
