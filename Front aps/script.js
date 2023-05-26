@@ -642,10 +642,11 @@ function updateChart(data) {
   const checkboxState = [];
 
   function updateDataContainer(data) {
-    const dataContainer = document.getElementById("dataContainer");
+    const dataContainer = document.getElementById("pontos");
     dataContainer.innerHTML = "";
 
     for (let i = 0; i < data.length; i++) {
+      const listItem = document.createElement("li");
       const pointParagraph = document.createElement("p");
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -660,16 +661,17 @@ function updateChart(data) {
 
       pointParagraph.appendChild(checkbox);
 
+      var name = data[i].nm_ponto
       var R = data[i].r_ponto;
       var N = data[i].n_ponto;
       var F = data[i].f_ponto;
-      var EYR = (1 / F).toFixed(5);
-      var EIR = (F / EYR).toFixed(5);
-      var ELR = ((1 - R) / R).toFixed(5);
-      var SI = (EYR / ELR).toFixed(5);
+      var EYR = (1 / F).toExponential(2);
+      var EIR = (F / EYR).toExponential(2);
+      var ELR = ((1 - R) / R).toExponential(2);
+      var SI = (EYR / ELR).toExponential(2);
 
       const dataText = document.createElement("span");
-      dataText.textContent = ` ${data[i].nm_ponto}, R: ${R}, N: ${N}, F: ${F}, EYR: ${EYR} EIR: ${EIR}, ELR: ${ELR}, SI: ${SI}`;
+      dataText.textContent = ` ${name}, \nR: ${R}, \nN: ${N}, \nF: ${F}, \nEYR: ${EYR} \nEIR: ${EIR}, \nELR: ${ELR}, \nSI: ${SI}`;
 
       pointParagraph.appendChild(dataText);
 
@@ -700,7 +702,8 @@ function updateChart(data) {
 
       // Append the buttons to the point paragraph
       pointParagraph.appendChild(deleteButton);
-      dataContainer.appendChild(pointParagraph);
+      listItem.appendChild(pointParagraph);
+      dataContainer.appendChild(listItem);
     }
   }
 
