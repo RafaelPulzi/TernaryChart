@@ -826,48 +826,46 @@ function updateChart(data) {
 
       pointParagraph.appendChild(dataText);
 
-      //ALTER
+      // ALTER
       const alterButton = document.createElement("button");
       alterButton.textContent = "Alter";
 
       alterButton.addEventListener("click", function () {
-        const id = this.dataset.id; 
+        const id = this.dataset.id;
 
-       
+        const nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.placeholder = "name";
+
         const rInput = document.createElement("input");
         rInput.type = "number";
-        rInput.placeholder = "R value";
+        rInput.placeholder = R;
 
         const nInput = document.createElement("input");
         nInput.type = "number";
-        nInput.placeholder = "N value";
+        nInput.placeholder = N;
 
         const fInput = document.createElement("input");
         fInput.type = "number";
-        fInput.placeholder = "F value";
+        fInput.placeholder = F;
 
-        
         const submitButton = document.createElement("button");
         submitButton.textContent = "Submit";
 
-       
         submitButton.addEventListener("click", function () {
-          
-          const newRValue = rInput.value;
-          const newNValue = nInput.value;
-          const newFValue = fInput.value;
 
-        
           fetch(`https://backternarychart-production.up.railway.app/points`, {
               headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                "Accept": "application/json",
+                "Content-Type": "application/json"
               },
               method: "PUT",
-              body: JSON.stringify({          
-                r_ponto: newRValue,
-                n_ponto: newNValue,
-                f_ponto: newFValue
+              body: JSON.stringify({
+                cd_ponto: id,
+                nm_ponto: nameInput.value,
+                r_ponto: rInput.value,
+                n_ponto: nInput.value,
+                f_ponto: fInput.value
               })
             })
             .then(function (res) {
@@ -880,19 +878,17 @@ function updateChart(data) {
             });
         });
 
-       
         const inputContainer = document.createElement("div");
-
-       
+        inputContainer.appendChild(nameInput);
         inputContainer.appendChild(rInput);
         inputContainer.appendChild(nInput);
         inputContainer.appendChild(fInput);
         inputContainer.appendChild(submitButton);
 
         const parentElement = this.parentElement;
-
         parentElement.insertBefore(inputContainer, parentElement.firstChild);
       });
+
 
 
 
