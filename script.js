@@ -828,10 +828,11 @@ function updateChart(data) {
 
       // ALTER
       const alterButton = document.createElement("button");
+      
       alterButton.textContent = "Alter";
 
       alterButton.addEventListener("click", function () {
-        const id = this.dataset.id;
+        const id = data[i].cd_ponto;
 
         const nameInput = document.createElement("input");
         nameInput.type = "text";
@@ -854,14 +855,13 @@ function updateChart(data) {
 
         submitButton.addEventListener("click", function () {
 
-          fetch(`https://backternarychart-production.up.railway.app/points`, {
+          fetch(`https://backternarychart-production.up.railway.app/points/update/${id}`, {
               headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
               },
               method: "PUT",
               body: JSON.stringify({
-                cd_ponto: id,
                 nm_ponto: nameInput.value,
                 r_ponto: rInput.value,
                 n_ponto: nInput.value,
