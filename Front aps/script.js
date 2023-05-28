@@ -675,6 +675,81 @@ function updateChart(data) {
 
       pointParagraph.appendChild(dataText);
 
+      // ALTER
+      const alterButton = document.createElement("button");
+      alterButton.textContent = "Alter";
+      let inputsVisible = false;
+
+      alterButton.addEventListener("click", function () {
+        const parentElement = this.parentElement;
+
+        if (inputsVisible) {
+          parentElement.querySelectorAll("input").forEach(input => input.remove());
+          parentElement.querySelector("button").remove();
+        } else {
+          const id = data[i].cd_ponto;
+
+          const nameInput = document.createElement("input");
+          nameInput.type = "text";
+          nameInput.placeholder = "name";
+
+          const rInput = document.createElement("input");
+          rInput.type = "number";
+          rInput.placeholder = R;
+
+          const nInput = document.createElement("input");
+          nInput.type = "number";
+          nInput.placeholder = N;
+
+          const fInput = document.createElement("input");
+          fInput.type = "number";
+          fInput.placeholder = F;
+
+          const submitButton = document.createElement("button");
+          submitButton.textContent = "Submit";
+
+          submitButton.addEventListener("click", function () {
+
+            fetch(`https://backternarychart-production.up.railway.app/points/update/${id}`, {
+                headers: {
+                  "Accept": "application/json",
+                  "Content-Type": "application/json"
+                },
+                method: "PUT",
+                body: JSON.stringify({
+                  nm_ponto: nameInput.value,
+                  r_ponto: rInput.value,
+                  n_ponto: nInput.value,
+                  f_ponto: fInput.value
+                })
+              })
+              .then(function (res) {
+                console.log(res);
+                alert("Alteration successful!");
+              })
+              .catch(function (error) {
+                console.log(error);
+                alert("An error occurred during alteration!");
+              });
+
+          });
+
+
+
+          const inputContainer = document.createElement("div");
+          inputContainer.appendChild(nameInput);
+          inputContainer.appendChild(rInput);
+          inputContainer.appendChild(nInput);
+          inputContainer.appendChild(fInput);
+          inputContainer.appendChild(submitButton);
+
+
+          parentElement.insertBefore(inputContainer, parentElement.firstChild);
+        };
+        inputsVisible = !inputsVisible; // Toggle the visibility state
+      });
+
+
       //DELETE
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "Delete";
@@ -701,6 +776,7 @@ function updateChart(data) {
       });
 
       // Append the buttons to the point paragraph
+      pointParagraph.appendChild(alterButton);
       pointParagraph.appendChild(deleteButton);
       listItem.appendChild(pointParagraph);
       dataContainer.appendChild(listItem);
