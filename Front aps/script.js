@@ -670,10 +670,41 @@ function updateChart(data) {
       var ELR = ((1 - R) / R).toExponential(2);
       var SI = (EYR / ELR).toExponential(2);
 
-      const dataText = document.createElement("span");
-      dataText.textContent = ` ${name}, \nR: ${R}, \nN: ${N}, \nF: ${F}, \nEYR: ${EYR} \nEIR: ${EIR}, \nELR: ${ELR}, \nSI: ${SI}`;
 
-      pointParagraph.appendChild(dataText);
+      const nameLink = document.createElement("a");
+      //nameLink.href = "#";
+      nameLink.textContent = ` ${name} `
+      const dataText = document.createElement("p");
+      const rSpan = document.createElement("span");
+      rSpan.textContent = `R: ${R}`;
+      const nSpan = document.createElement("span");
+      nSpan.textContent = `N: ${N}`;
+      const fSpan = document.createElement("span");
+      fSpan.textContent = `F: ${F}`;
+      const eyrSpan = document.createElement("span");
+      eyrSpan.textContent = `EYR: ${EYR}`;
+      const eirSpan = document.createElement("span");
+      eirSpan.textContent = `EIR: ${EIR}`;
+      const elrSpan = document.createElement("span");
+      elrSpan.textContent = `ELR: ${ELR}`;
+      const siSpan = document.createElement("span");
+      siSpan.textContent = `SI: ${SI}`;
+
+      dataText.appendChild(rSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(nSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(fSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(eyrSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(eirSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(elrSpan);
+      dataText.appendChild(document.createElement("br"));
+      dataText.appendChild(siSpan);
+
+      pointParagraph.appendChild(nameLink);
 
       // ALTER
       const alterButton = document.createElement("button");
@@ -695,15 +726,15 @@ function updateChart(data) {
 
           const rInput = document.createElement("input");
           rInput.type = "number";
-          rInput.placeholder = R;
+          rInput.placeholder = "R";
 
           const nInput = document.createElement("input");
           nInput.type = "number";
-          nInput.placeholder = N;
+          nInput.placeholder = "N";
 
           const fInput = document.createElement("input");
           fInput.type = "number";
-          fInput.placeholder = F;
+          fInput.placeholder = "F";
 
           const submitButton = document.createElement("button");
           submitButton.textContent = "Submit";
@@ -726,6 +757,7 @@ function updateChart(data) {
               .then(function (res) {
                 console.log(res);
                 alert("Alteration successful!");
+                getData();
               })
               .catch(function (error) {
                 console.log(error);
@@ -745,6 +777,7 @@ function updateChart(data) {
 
 
           parentElement.insertBefore(inputContainer, parentElement.firstChild);
+          
         };
         inputsVisible = !inputsVisible; // Toggle the visibility state
       });
@@ -775,9 +808,10 @@ function updateChart(data) {
 
       });
 
-      // Append the buttons to the point paragraph
+
       pointParagraph.appendChild(alterButton);
       pointParagraph.appendChild(deleteButton);
+      pointParagraph.appendChild(dataText);
       listItem.appendChild(pointParagraph);
       dataContainer.appendChild(listItem);
     }
